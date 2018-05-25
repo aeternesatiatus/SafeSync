@@ -367,8 +367,7 @@ Write this code in the file and REPLACE the capital words :
 
 ```
 date > /home/USER/rsync.log
-rsync -e ssh -av --delete --hard-links --progress "/home/NAME_OF_DIR_YOU_CHOSE/"#SAMELINE
-USER@HOSTNAME:./PATH_TO_SERVER_DAILY_BACKUP_FOLDER/ >> rsync.log
+rsync -e ssh -av --delete --hard-links --progress "/home/NAME_OF_DIR_YOU_CHOSE/" USER@HOSTNAME:./PATH_TO_SERVER_DAILY_BACKUP_FOLDER/ >> rsync.log
 ```
 
 !You need to use only one line combining the two last (starts with rsync and finishes with rsync.log)!
@@ -439,9 +438,7 @@ with the following content:
 set PATH=C:/PATH_TO_CSWRSYNC_BIN
 date /T >>rsync.log
 time /T >>rsync.log
-rsync -e ssh -av --delete --progress "/cygdrive/c/Sauvegardes/"#SAMELINE
-USER@HOSTNAME:./PATH_TO_SERVER_DAILY_BACKUP_FOLDER/ >> rsync.log
-echo TERMINE
+rsync -e ssh -av --delete --hard-links --progress "/home/NAME_OF_DIR_YOU_CHOSE/" USER@HOSTNAME:./PATH_TO_SERVER_DAILY_BACKUP_FOLDER/ >> rsync.log
 ```
 
 Write this code in the file and REPLACE the capital words :
@@ -465,7 +462,22 @@ Follow Linux CLients procedure about private and public SSH keys.
 
 #### Mac clients
 
-...
+sh root@IP_ADDRESS
+# rm -r ~/.ssh/
+# mkdir ~/.ssh
+# chmod 700 ~/.ssh
+# touch ~/.ssh/authorized_keys
+# logout
+# ssh-keygen -t rsa
+# cat ~/.ssh/id_rsa.pub | pbcopy
+# ssh root@IP_ADDRESS
+# pbpaste >> ~/.ssh/authorized_keys'
+# chmod 600 ~/.ssh/authorized_keys
+# chmod go-w ~/.ssh/
+# reboot
+# Type Ctrl-c
+# rm ~/.ssh/id_rsa.pub
+# ssh root@IP_ADDRESS
 
 ### Access Saved files
 

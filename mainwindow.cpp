@@ -8,9 +8,13 @@
 
 #define REGISTRY_KEY_EXISTS "YDG3X2M"
 #define REGISTRY_KEY_RECOVERABLE "7N3MPX4"
-#define REGISTRY_KEY_HOSTNAME "Q2WU6O9"
-#define REGISTRY_KEY_USERNAME "IRV31SZ"
-#define REGISTRY_KEY_PASSWORD "16L75HX"
+#define REGISTRY_KEY_SERVER_HOSTNAME "Q2WU6O9"
+#define REGISTRY_KEY_SERVER_USERNAME "IRV31SZ"
+#define REGISTRY_KEY_SERVER_PASSWORD "16L75HX"
+#define REGISTRY_KEY_SERVER_DAILY "6H8D2K0"
+#define REGISTRY_KEY_CLIENT_USER "1JF6S3P"
+#define REGISTRY_KEY_CLIENT_BACKUP "7B4XM8Z"
+
 #define REGISTRY_KEY_ATTEMPTS "KTDJ7M9"
 
 #define EXIT_ANIMATION_LENGHT 500
@@ -146,11 +150,15 @@ QMessageBox::Yes, QMessageBox::Abort);
 QMessageBox::Yes, QMessageBox::No);
     }
 
-    if (recover == QMessageBox::Yes){
+    if (recover == QMessageBox::Yes) {
         configInstance = new configDialog(
-        (settings.value(REGISTRY_KEY_HOSTNAME).toString()),
-        (settings.value(REGISTRY_KEY_USERNAME).toString()),
-        (settings.value(REGISTRY_KEY_PASSWORD).toString()), this);
+        (settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString()),
+        (settings.value(REGISTRY_KEY_SERVER_USERNAME).toString()),
+        (settings.value(REGISTRY_KEY_SERVER_PASSWORD).toString()),
+        (settings.value(REGISTRY_KEY_SERVER_DAILY).toString()),
+        (settings.value(REGISTRY_KEY_CLIENT_USER).toString()),
+        (settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString()),
+                    this);
         configInstance->show();
     }
     else {
@@ -171,11 +179,17 @@ void MainWindow::connectionTest()
     settings.setValue(REGISTRY_KEY_EXISTS, TRUE);
     settings.setValue(REGISTRY_KEY_RECOVERABLE, TRUE);
 
-    settings.setValue(REGISTRY_KEY_HOSTNAME, (configInstance->hostPtr->text()));
+    settings.setValue(REGISTRY_KEY_SERVER_HOSTNAME, (configInstance->serverHost->text()));
 
-    settings.setValue(REGISTRY_KEY_USERNAME, (configInstance->usrPtr->text()));
+    settings.setValue(REGISTRY_KEY_SERVER_USERNAME, (configInstance->serverUser->text()));
 
-    settings.setValue(REGISTRY_KEY_PASSWORD, (configInstance->passPtr->text()));
+    settings.setValue(REGISTRY_KEY_SERVER_HOSTNAME, (configInstance->serverPass->text()));
+
+    settings.setValue(REGISTRY_KEY_SERVER_DAILY, (configInstance->serverDaily->text()));
+
+    settings.setValue(REGISTRY_KEY_CLIENT_USER, (configInstance->clientUser->text()));
+
+    settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, configInstance->clientBackup->text());
 
     QMessageBox::information(this, "Success", "Data successfully saved.");
 }
@@ -187,20 +201,38 @@ QString MainWindow::getNewString (QString property)
     return newString;
 }
 
-void MainWindow::on_CHostButton_clicked()
+void MainWindow::on_CServerHostButton_clicked()
 {
     QString newValue = getNewString("host");
-    settings.setValue(REGISTRY_KEY_HOSTNAME, newValue);
+    settings.setValue(REGISTRY_KEY_SERVER_HOSTNAME, newValue);
 }
 
-void MainWindow::on_CUserButton_clicked()
+void MainWindow::on_CServerUserButton_clicked()
 {
     QString newValue = getNewString("user");
-    settings.setValue(REGISTRY_KEY_USERNAME, newValue);
+    settings.setValue(REGISTRY_KEY_SERVER_USERNAME, newValue);
 }
 
-void MainWindow::on_CPassButton_clicked()
+void MainWindow::on_CServerPassButton_clicked()
 {
     QString newValue = getNewString("pass");
-    settings.setValue(REGISTRY_KEY_PASSWORD, newValue);
+    settings.setValue(REGISTRY_KEY_SERVER_PASSWORD, newValue);
+}
+
+void MainWindow::on_CServerDailyButton_clicked()
+{
+    QString newValue = getNewString("daily");
+    settings.setValue(REGISTRY_KEY_SERVER_DAILY, newValue);
+}
+
+void MainWindow::on_CClientUserButton_clicked()
+{
+    QString newValue = getNewString("user");
+    settings.setValue(REGISTRY_KEY_CLIENT_USER, newValue);
+}
+
+void MainWindow::on_CClientBackupButton_clicked()
+{
+    QString newValue = getNewString("backup");
+    settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, newValue);
 }

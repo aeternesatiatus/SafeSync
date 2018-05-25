@@ -56,9 +56,14 @@ public slots:
     void on_resetButton_clicked(); // Soft reset.
     void on_hResetButton_clicked();// Hard reset.
     void connectionTest();
-    void on_CHostButton_clicked();
-    void on_CUserButton_clicked();
-    void on_CPassButton_clicked();
+
+    void on_CServerHostButton_clicked();
+    void on_CServerUserButton_clicked();
+    void on_CServerPassButton_clicked();
+    void on_CServerDailyButton_clicked();
+    void on_CClientUserButton_clicked();
+    void on_CClientBackupButton_clicked();
+
 signals:
 };
 

@@ -9,16 +9,22 @@ configDialog::configDialog(QWidget *parent) :
     initPtr();
 }
 
-configDialog::configDialog(const QString &host, const QString &username
-                         , const QString &password, QWidget *parent) :
+configDialog::configDialog(const QString &serverUser,
+                           const QString &serverHost, const QString &serverPass,
+                           const QString &serverDaily, const QString &clientUser,
+                           const QString &clientBackup, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::configDialog)
 {
     ui->setupUi(this);
 
-    ui->hostLine->setText(host);
-    ui->userLine->setText(username);
-    ui->passLine->setText(password);
+    ui->serverUserLine->setText(serverUser);
+    ui->serverHostLine->setText(serverHost);
+    ui->serverPassLine->setText(serverPass);
+    ui->serverDailyLine->setText(serverDaily);
+    ui->clientUserLine->setText(clientUser);
+    ui->clientBackupLine->setText(clientBackup);
+
     initPtr();
 }
 
@@ -29,18 +35,22 @@ configDialog::~configDialog()
 
 void configDialog::initPtr()
 {
-    hostPtr = ui->hostLine;
-    usrPtr = ui->userLine;
-    passPtr = ui->passLine;
+    serverUser = ui->serverUserLine;
+    serverHost = ui->serverHostLine;
+    serverPass = ui->serverPassLine;
+    serverDaily = ui->serverDailyLine;
+    clientUser = clientUser;
+    clientBackup = ui->clientBackupLine;
+
     setModal(true);
 }
 
 void configDialog::on_passCheck_clicked()
 {
     if (ui->passCheck->isChecked() == true) {
-        ui->passLine->setEchoMode(QLineEdit::Normal);
+        ui->serverPassLine->setEchoMode(QLineEdit::Normal);
     }
     else {
-        ui->passLine->setEchoMode(QLineEdit::Password);
+        ui->serverPassLine->setEchoMode(QLineEdit::Password);
     }
 }

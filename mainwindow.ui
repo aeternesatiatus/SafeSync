@@ -1350,8 +1350,8 @@ QDateEdit::down-arrow:focus {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>228</width>
-                <height>295</height>
+                <width>222</width>
+                <height>292</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1409,8 +1409,8 @@ QDateEdit::down-arrow:focus {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>228</width>
-                <height>295</height>
+                <width>221</width>
+                <height>292</height>
                </rect>
               </property>
              </widget>
@@ -1685,7 +1685,7 @@ QDateEdit::down-arrow:focus {
         <string>Settings</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_7">
-        <item row="0" column="1">
+        <item row="0" column="2" rowspan="2">
          <widget class="QGroupBox" name="groupBox_5">
           <property name="title">
            <string>Reset</string>
@@ -1763,25 +1763,58 @@ QDateEdit::down-arrow:focus {
         <item row="0" column="0">
          <widget class="QGroupBox" name="groupBox_6">
           <property name="title">
-           <string>SSH</string>
+           <string>SERVER</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_8">
+           <item row="3" column="0">
+            <spacer name="horizontalSpacer_21">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="1">
+            <widget class="QPushButton" name="CServerDailyButton">
+             <property name="text">
+              <string>Change Daily Path</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <spacer name="horizontalSpacer_22">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
            <item row="1" column="1">
-            <widget class="QPushButton" name="CUserButton">
+            <widget class="QPushButton" name="CServerUserButton">
              <property name="text">
               <string>Change username</string>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QPushButton" name="CPassButton">
+            <widget class="QPushButton" name="CServerPassButton">
              <property name="text">
               <string>Change password</string>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QPushButton" name="CHostButton">
+            <widget class="QPushButton" name="CServerHostButton">
              <property name="text">
               <string>Change hostname</string>
              </property>
@@ -1868,6 +1901,81 @@ QDateEdit::down-arrow:focus {
           </layout>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="groupBox_7">
+          <property name="title">
+           <string>CLIENT</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_11">
+           <item row="0" column="2">
+            <spacer name="horizontalSpacer_24">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>68</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="CClientUserButton">
+             <property name="text">
+              <string>Change username</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <spacer name="horizontalSpacer_23">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>68</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer_25">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_26">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="CClientBackupButton">
+             <property name="text">
+              <string>Change Backup Path</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -1880,7 +1988,7 @@ QDateEdit::down-arrow:focus {
      <x>0</x>
      <y>0</y>
      <width>721</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

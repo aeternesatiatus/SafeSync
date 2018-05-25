@@ -17,11 +17,13 @@ class configDialog : public QDialog
 
 public:
     explicit configDialog(QWidget *parent = 0);
-    explicit configDialog(const QString & host, const QString & username,
-                          const QString & password, QWidget *parent = 0);
+    explicit configDialog(const QString &serverUser,
+                            const QString &serverHost, const QString &serverPass,
+                            const QString &serverDaily, const QString &clientUser,
+                            const QString &clientBackup, QWidget *parent = 0);
     ~configDialog();
 
-    QLineEdit *hostPtr, *usrPtr, *passPtr, *sPassPtr;
+    QLineEdit *serverUser, *serverHost, *serverPass, *serverDaily, *clientUser, *clientBackup;
 
 private:
     Ui::configDialog *ui;

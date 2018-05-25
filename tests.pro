@@ -26,11 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    configdialog.cpp
+    configdialog.cpp \
+    ScriptsClass/sync.cpp \
+    ScriptsClass/linux.cpp \
+    ScriptsClass/macosx.cpp \
+    ScriptsClass/windows.cpp
 
 HEADERS += \
         mainwindow.h \
-    configdialog.h
+    configdialog.h \
+    ScriptsClass/sync.h \
+    ScriptsClass/linux.h \
+    ScriptsClass/macosx.h \
+    ScriptsClass/windows.h
 
 FORMS += \
         mainwindow.ui \
@@ -38,7 +46,6 @@ FORMS += \
 
 DISTFILES += \
     darkstyle.qss \
-    include/zedwood/LICENSE \
     Qt-AES-master/LICENSE
 
 RESOURCES += \
