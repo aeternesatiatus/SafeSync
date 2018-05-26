@@ -10,7 +10,6 @@
 #define REGISTRY_KEY_RECOVERABLE "7N3MPX4"
 #define REGISTRY_KEY_SERVER_HOSTNAME "Q2WU6O9"
 #define REGISTRY_KEY_SERVER_USERNAME "IRV31SZ"
-#define REGISTRY_KEY_SERVER_PASSWORD "16L75HX"
 #define REGISTRY_KEY_SERVER_DAILY "6H8D2K0"
 #define REGISTRY_KEY_CLIENT_USER "D45G32K"
 #define REGISTRY_KEY_CLIENT_BACKUP "7B4XM8Z"
@@ -154,7 +153,6 @@ QMessageBox::Yes, QMessageBox::No);
         configInstance = new configDialog(
         (settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString()),
         (settings.value(REGISTRY_KEY_SERVER_USERNAME).toString()),
-        (settings.value(REGISTRY_KEY_SERVER_PASSWORD).toString()),
         (settings.value(REGISTRY_KEY_SERVER_DAILY).toString()),
         (settings.value(REGISTRY_KEY_CLIENT_USER).toString()),
         (settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString()),
@@ -183,8 +181,6 @@ void MainWindow::connectionTest()
 
     settings.setValue(REGISTRY_KEY_SERVER_USERNAME, (configInstance->serverUser->text()));
 
-    settings.setValue(REGISTRY_KEY_SERVER_PASSWORD, (configInstance->serverPass->text()));
-
     settings.setValue(REGISTRY_KEY_SERVER_DAILY,    (configInstance->serverDaily->text()));
 
     settings.setValue(REGISTRY_KEY_CLIENT_USER,     (configInstance->clientUser->text()));
@@ -192,6 +188,26 @@ void MainWindow::connectionTest()
     settings.setValue(REGISTRY_KEY_CLIENT_BACKUP,   (configInstance->clientBackup->text()));
 
     QMessageBox::information(this, "Success", "Data successfully saved.");
+
+    sync commandString(sync::linuxos);
+
+    commandString.setClientUser(configInstance->clientUser->text());
+    commandString.setClientDir(configInstance->clientBackup->text());
+
+    commandString.setServerUser(configInstance->serverUser->text());
+    commandString.setServerHostname(configInstance->serverHost->text());
+    commandString.setServerDaily(configInstance->serverDaily->text());
+
+    QString command = commandString.generateCommand();
+
+    QFile backupFile("../backup.bat");
+
+    backupFile.open(QIODevice::ReadWrite | QIODevice::Text);
+
+    QTextStream strIn(&backupFile);
+    strIn << command;
+
+    backupFile.close();
 }
 
 QString MainWindow::getNewString (QString property)
@@ -211,12 +227,6 @@ void MainWindow::on_CServerUserButton_clicked()
 {
     QString newValue = getNewString("user");
     settings.setValue(REGISTRY_KEY_SERVER_USERNAME, newValue);
-}
-
-void MainWindow::on_CServerPassButton_clicked()
-{
-    QString newValue = getNewString("pass");
-    settings.setValue(REGISTRY_KEY_SERVER_PASSWORD, newValue);
 }
 
 void MainWindow::on_CServerDailyButton_clicked()

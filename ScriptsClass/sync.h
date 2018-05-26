@@ -50,8 +50,6 @@ signals:
     void serverHostnameChanged ();
     void serverDailyChanged ();
     void cwrsyncChanged ();
-
-public slots:
 };
 
 #endif // SYNC_H

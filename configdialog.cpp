@@ -10,9 +10,11 @@ configDialog::configDialog(QWidget *parent) :
 }
 
 configDialog::configDialog(const QString &serverUser,
-                           const QString &serverHost, const QString &serverPass,
-                           const QString &serverDaily, const QString &clientUser,
-                           const QString &clientBackup, QWidget *parent) :
+                           const QString &serverHost,
+                           const QString &serverDaily,
+                           const QString &clientUser,
+                           const QString &clientBackup,
+                           QWidget *parent) :
     QDialog(parent),
     ui(new Ui::configDialog)
 {
@@ -20,7 +22,6 @@ configDialog::configDialog(const QString &serverUser,
 
     ui->serverUserLine->setText(serverUser);
     ui->serverHostLine->setText(serverHost);
-    ui->serverPassLine->setText(serverPass);
     ui->serverDailyLine->setText(serverDaily);
     ui->clientUserLine->setText(clientUser);
     ui->clientBackupLine->setText(clientBackup);
@@ -37,20 +38,14 @@ void configDialog::initPtr()
 {
     serverUser = ui->serverUserLine;
     serverHost = ui->serverHostLine;
-    serverPass = ui->serverPassLine;
     serverDaily = ui->serverDailyLine;
     clientUser = ui->clientUserLine;
     clientBackup = ui->clientBackupLine;
 
-    setModal(true);
-}
+    setTabOrder(ui->serverUserLine, ui->serverHostLine);
+    setTabOrder(ui->serverHostLine, ui->serverDailyLine);
+    setTabOrder(ui->serverDailyLine, ui->clientUserLine);
+    setTabOrder(ui->clientUserLine, ui->clientBackupLine);
 
-void configDialog::on_passCheck_clicked()
-{
-    if (ui->passCheck->isChecked() == true) {
-        ui->serverPassLine->setEchoMode(QLineEdit::Normal);
-    }
-    else {
-        ui->serverPassLine->setEchoMode(QLineEdit::Password);
-    }
+    setModal(true);
 }

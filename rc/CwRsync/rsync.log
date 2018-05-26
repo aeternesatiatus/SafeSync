@@ -1,17 +1,0 @@
-Sun 20/05/2018 
-03:04 PM
-Sun 20/05/2018 
-03:04 PM
-Sun 20/05/2018 
-03:04 PM
-Sun 20/05/2018 
-03:05 PM
-sending incremental file list
-Sun 20/05/2018 
-03:08 PM
-sending incremental file list
-rsync.log
-            195 100%    0.00kB/s    0:00:00              195 100%    0.00kB/s    0:00:00 (xfr#1, to-chk=0/1)
-
-sent 311 bytes  received 35 bytes  27.68 bytes/sec
-total size is 195  speedup is 0.56

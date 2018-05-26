@@ -1766,7 +1766,7 @@ QDateEdit::down-arrow:focus {
            <string>SERVER</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_8">
-           <item row="3" column="0">
+           <item row="2" column="0">
             <spacer name="horizontalSpacer_21">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1779,14 +1779,14 @@ QDateEdit::down-arrow:focus {
              </property>
             </spacer>
            </item>
-           <item row="3" column="1">
+           <item row="2" column="1">
             <widget class="QPushButton" name="CServerDailyButton">
              <property name="text">
               <string>Change Daily Path</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="2">
+           <item row="2" column="2">
             <spacer name="horizontalSpacer_22">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1803,13 +1803,6 @@ QDateEdit::down-arrow:focus {
             <widget class="QPushButton" name="CServerUserButton">
              <property name="text">
               <string>Change username</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QPushButton" name="CServerPassButton">
-             <property name="text">
-              <string>Change password</string>
              </property>
             </widget>
            </item>
@@ -1861,32 +1854,6 @@ QDateEdit::down-arrow:focus {
            </item>
            <item row="1" column="2">
             <spacer name="horizontalSpacer_14">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="0">
-            <spacer name="horizontalSpacer_15">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="2">
-            <spacer name="horizontalSpacer_16">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>

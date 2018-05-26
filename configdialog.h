@@ -18,19 +18,17 @@ class configDialog : public QDialog
 public:
     explicit configDialog(QWidget *parent = 0);
     explicit configDialog(const QString &serverUser,
-                            const QString &serverHost, const QString &serverPass,
+                            const QString &serverHost,
                             const QString &serverDaily, const QString &clientUser,
                             const QString &clientBackup, QWidget *parent = 0);
     ~configDialog();
 
-    QLineEdit *serverUser, *serverHost, *serverPass, *serverDaily, *clientUser, *clientBackup;
+    QLineEdit *serverUser, *serverHost, *serverDaily, *clientUser, *clientBackup;
 
 private:
     Ui::configDialog *ui;
 
     void initPtr();
-public slots:
-    void on_passCheck_clicked();
 };
 
 #endif // CONFIGDIALOG_H

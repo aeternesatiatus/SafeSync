@@ -11,8 +11,12 @@
 #include <QEasingCurve>
 #include <QCloseEvent>
 #include <QByteArray>
+#include <QFile>
+#include <QTextStream>
+
 
 #include <configdialog.h>
+#include <ScriptsClass/sync.h>
 
 namespace Ui {
 // Ui is used to link the XML created in designer with C++ code
@@ -59,7 +63,6 @@ public slots:
 
     void on_CServerHostButton_clicked();
     void on_CServerUserButton_clicked();
-    void on_CServerPassButton_clicked();
     void on_CServerDailyButton_clicked();
     void on_CClientUserButton_clicked();
     void on_CClientBackupButton_clicked();

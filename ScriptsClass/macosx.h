@@ -5,7 +5,7 @@
 
 namespace macosx
 {
-    static const QString first = "date > /home/";
+    static const QString first = "#!/bin/bash\n\ndate > /home/";
     // second: clientUser
     static const QString third = "/rsync.log\nrsync -e ssh -av --delete --hard-links --progress \"";
     // fourth: clientDir
