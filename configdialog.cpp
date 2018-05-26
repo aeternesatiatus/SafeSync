@@ -39,7 +39,7 @@ void configDialog::initPtr()
     serverHost = ui->serverHostLine;
     serverPass = ui->serverPassLine;
     serverDaily = ui->serverDailyLine;
-    clientUser = clientUser;
+    clientUser = ui->clientUserLine;
     clientBackup = ui->clientBackupLine;
 
     setModal(true);

@@ -48,6 +48,7 @@ QString sync::generateCommand () {
                        windows::seventh + serverHostname +
                        windows::ninth + serverDaily +
                        windows::eleventh);
+            // QString path("");
             break;
         case linuxos: // same for linux and mac
 

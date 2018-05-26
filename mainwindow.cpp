@@ -12,7 +12,7 @@
 #define REGISTRY_KEY_SERVER_USERNAME "IRV31SZ"
 #define REGISTRY_KEY_SERVER_PASSWORD "16L75HX"
 #define REGISTRY_KEY_SERVER_DAILY "6H8D2K0"
-#define REGISTRY_KEY_CLIENT_USER "1JF6S3P"
+#define REGISTRY_KEY_CLIENT_USER "D45G32K"
 #define REGISTRY_KEY_CLIENT_BACKUP "7B4XM8Z"
 
 #define REGISTRY_KEY_ATTEMPTS "KTDJ7M9"
@@ -183,13 +183,13 @@ void MainWindow::connectionTest()
 
     settings.setValue(REGISTRY_KEY_SERVER_USERNAME, (configInstance->serverUser->text()));
 
-    settings.setValue(REGISTRY_KEY_SERVER_HOSTNAME, (configInstance->serverPass->text()));
+    settings.setValue(REGISTRY_KEY_SERVER_PASSWORD, (configInstance->serverPass->text()));
 
-    settings.setValue(REGISTRY_KEY_SERVER_DAILY, (configInstance->serverDaily->text()));
+    settings.setValue(REGISTRY_KEY_SERVER_DAILY,    (configInstance->serverDaily->text()));
 
-    settings.setValue(REGISTRY_KEY_CLIENT_USER, (configInstance->clientUser->text()));
+    settings.setValue(REGISTRY_KEY_CLIENT_USER,     (configInstance->clientUser->text()));
 
-    settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, configInstance->clientBackup->text());
+    settings.setValue(REGISTRY_KEY_CLIENT_BACKUP,   (configInstance->clientBackup->text()));
 
     QMessageBox::information(this, "Success", "Data successfully saved.");
 }

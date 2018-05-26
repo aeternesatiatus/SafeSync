@@ -489,3 +489,10 @@ to use Konqueror by typing this address in your web browser:
 ```
 sftp://user@hostname
 ```
+
+Tasks:
+
+- Create function that writes the QString in a .sh / .bat file
+- Create function that runs the command contained the file ^^
+- Creates function that runs previous command everyday at 3
+- Write documentation for autorun on the three OS
