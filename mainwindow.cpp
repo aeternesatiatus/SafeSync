@@ -11,7 +11,6 @@
 #define REGISTRY_KEY_SERVER_HOSTNAME "Q2WU6O9"
 #define REGISTRY_KEY_SERVER_USERNAME "IRV31SZ"
 #define REGISTRY_KEY_SERVER_DAILY "6H8D2K0"
-#define REGISTRY_KEY_CLIENT_USER "D45G32K"
 #define REGISTRY_KEY_CLIENT_BACKUP "7B4XM8Z"
 
 #define REGISTRY_KEY_ATTEMPTS "KTDJ7M9"
@@ -99,8 +98,9 @@ void MainWindow::on_resetButton_clicked()
 "You will still be able to recover most of it.",
 QMessageBox::Yes, QMessageBox::No);
 
-    if (ok == QMessageBox::No)
+    if (ok == QMessageBox::No) {
         return;
+    }
 
     settings.setValue(REGISTRY_KEY_EXISTS, FALSE);
 
@@ -117,11 +117,12 @@ void MainWindow::on_hResetButton_clicked()
 "You won't be able to recover any of it.",
 QMessageBox::Yes, QMessageBox::No);
 
-    if (ok == QMessageBox::No)
+    if (ok == QMessageBox::No) {
         return;
+    }
 
     settings.clear();
-
+    int work = (system("rm backup.bat"));
     QMessageBox::information(this, "Information",
                    "The software will now restart");
 
@@ -154,7 +155,6 @@ QMessageBox::Yes, QMessageBox::No);
         (settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString()),
         (settings.value(REGISTRY_KEY_SERVER_USERNAME).toString()),
         (settings.value(REGISTRY_KEY_SERVER_DAILY).toString()),
-        (settings.value(REGISTRY_KEY_CLIENT_USER).toString()),
         (settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString()),
                     this);
         configInstance->show();
@@ -183,15 +183,28 @@ void MainWindow::connectionTest()
 
     settings.setValue(REGISTRY_KEY_SERVER_DAILY,    (configInstance->serverDaily->text()));
 
-    settings.setValue(REGISTRY_KEY_CLIENT_USER,     (configInstance->clientUser->text()));
-
     settings.setValue(REGISTRY_KEY_CLIENT_BACKUP,   (configInstance->clientBackup->text()));
 
     QMessageBox::information(this, "Success", "Data successfully saved.");
-
     sync commandString(sync::linuxos);
 
-    commandString.setClientUser(configInstance->clientUser->text());
+    int work = (system("rm backup.bat"));
+
+    QString osName = getOsName();
+    if (osName == "Windows") {
+        commandString.Platform = (sync::windowsos);
+    } else if (osName == "Linux") {
+            commandString.Platform = (sync::linuxos);
+    } else if (osName == "MacOSX") {
+            commandString.Platform = (sync::macosx);
+    } else {
+        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
+                                                         "This software only supports WindowsOS, "
+                                                         "LinuxOS and MacOSX. \nIf you think "
+                                                         "that there is an issue, please report it on github.");
+        qApp->quit();
+    }
+
     commandString.setClientDir(configInstance->clientBackup->text());
 
     commandString.setServerUser(configInstance->serverUser->text());
@@ -200,13 +213,53 @@ void MainWindow::connectionTest()
 
     QString command = commandString.generateCommand();
 
-    QFile backupFile("../backup.bat");
+    QFile backupFile("backup.bat");
 
     backupFile.open(QIODevice::ReadWrite | QIODevice::Text);
 
     QTextStream strIn(&backupFile);
     strIn << command;
 
+    backupFile.close();
+}
+
+void MainWindow::modifyBackup () {
+    sync commandString(sync::linuxos);
+    QString osName = getOsName();
+
+    if (osName == "Windows") {
+        commandString.Platform = (sync::windowsos);
+    } else if (osName == "Linux") {
+            commandString.Platform = (sync::linuxos);
+    } else if (osName == "MacOSX") {
+            commandString.Platform = (sync::macosx);
+    } else {
+        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
+                                                         "This software only supports WindowsOS, "
+                                                         "LinuxOS and MacOSX. \nIf you think "
+                                                         "that there is an issue, please report it on github.");
+        qApp->quit();
+    }
+
+    QString serverHost = settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString();
+    QString serverUser = settings.value(REGISTRY_KEY_SERVER_USERNAME).toString();
+    QString serverDaily = settings.value(REGISTRY_KEY_SERVER_DAILY).toString();
+
+    QString clientBackup = settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString();
+
+    commandString.setServerHostname(serverHost);
+    commandString.setServerUser(serverUser);
+    commandString.setServerDaily(serverDaily);
+
+    commandString.setClientDir(clientBackup);
+
+    QString command = commandString.generateCommand();
+    int work = (system("rm backup.bat"));
+    (void)work;
+    QFile backupFile("backup.bat");
+    backupFile.open(QIODevice::ReadWrite | QIODevice::Text);
+    QTextStream strIn(&backupFile);
+    strIn << command;
     backupFile.close();
 }
 
@@ -221,28 +274,41 @@ void MainWindow::on_CServerHostButton_clicked()
 {
     QString newValue = getNewString("host");
     settings.setValue(REGISTRY_KEY_SERVER_HOSTNAME, newValue);
+    modifyBackup();
 }
 
 void MainWindow::on_CServerUserButton_clicked()
 {
     QString newValue = getNewString("user");
     settings.setValue(REGISTRY_KEY_SERVER_USERNAME, newValue);
+    modifyBackup();
 }
 
 void MainWindow::on_CServerDailyButton_clicked()
 {
     QString newValue = getNewString("daily");
     settings.setValue(REGISTRY_KEY_SERVER_DAILY, newValue);
-}
-
-void MainWindow::on_CClientUserButton_clicked()
-{
-    QString newValue = getNewString("user");
-    settings.setValue(REGISTRY_KEY_CLIENT_USER, newValue);
+    modifyBackup();
 }
 
 void MainWindow::on_CClientBackupButton_clicked()
 {
     QString newValue = getNewString("backup");
     settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, newValue);
+    modifyBackup();
+}
+
+QString MainWindow::getOsName()
+{
+    #ifdef _WIN32
+    return "Windows";
+    #elif _WIN64
+    return "Windows";
+    #elif __APPLE__ || __MACH__
+    return "MacOSX";
+    #elif __linux__
+    return "Linux";
+    #else
+    return "Other";
+    #endif
 }

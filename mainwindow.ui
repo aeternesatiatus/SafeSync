@@ -1874,40 +1874,14 @@ QDateEdit::down-arrow:focus {
            <string>CLIENT</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_11">
-           <item row="0" column="2">
-            <spacer name="horizontalSpacer_24">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>68</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="0" column="1">
-            <widget class="QPushButton" name="CClientUserButton">
+            <widget class="QPushButton" name="CClientBackupButton">
              <property name="text">
-              <string>Change username</string>
+              <string>Change Backup Path</string>
              </property>
             </widget>
            </item>
            <item row="0" column="0">
-            <spacer name="horizontalSpacer_23">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>68</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="0">
             <spacer name="horizontalSpacer_25">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1920,7 +1894,7 @@ QDateEdit::down-arrow:focus {
              </property>
             </spacer>
            </item>
-           <item row="1" column="2">
+           <item row="0" column="2">
             <spacer name="horizontalSpacer_26">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -1932,13 +1906,6 @@ QDateEdit::down-arrow:focus {
               </size>
              </property>
             </spacer>
-           </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="CClientBackupButton">
-             <property name="text">
-              <string>Change Backup Path</string>
-             </property>
-            </widget>
            </item>
           </layout>
          </widget>

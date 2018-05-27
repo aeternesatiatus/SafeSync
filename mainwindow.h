@@ -17,6 +17,7 @@
 
 #include <configdialog.h>
 #include <ScriptsClass/sync.h>
+#include <sys/utsname.h>
 
 namespace Ui {
 // Ui is used to link the XML created in designer with C++ code
@@ -31,6 +32,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = NULL); // Constructor
+    void modifyBackup ();
     ~MainWindow(); // Destructor
 
 private:
@@ -48,6 +50,8 @@ private:
 
     QString getNewString (QString property);
 
+    QString getOsName();
+
 protected:
     void closeEvent(QCloseEvent *event);
 
@@ -64,7 +68,6 @@ public slots:
     void on_CServerHostButton_clicked();
     void on_CServerUserButton_clicked();
     void on_CServerDailyButton_clicked();
-    void on_CClientUserButton_clicked();
     void on_CClientBackupButton_clicked();
 
 signals:

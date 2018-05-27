@@ -18,7 +18,8 @@ public:
     };
 
     explicit sync(sync::os platform, QObject *parent = nullptr);
-    const sync::os Platform;
+    explicit sync();
+    sync::os Platform;
     void setClientUser (QString value);
     void setClientDir (QString value);
     void setServerUser (QString value);

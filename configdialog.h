@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include <QRect>
 #include <QDesktopWidget>
+#include <QFileInfo>
 
 namespace Ui {
 class configDialog;
@@ -19,11 +20,12 @@ public:
     explicit configDialog(QWidget *parent = 0);
     explicit configDialog(const QString &serverUser,
                             const QString &serverHost,
-                            const QString &serverDaily, const QString &clientUser,
-                            const QString &clientBackup, QWidget *parent = 0);
+                            const QString &serverDaily,
+                            const QString &clientBackup,
+                          QWidget *parent = 0);
     ~configDialog();
 
-    QLineEdit *serverUser, *serverHost, *serverDaily, *clientUser, *clientBackup;
+    QLineEdit *serverUser, *serverHost, *serverDaily, *clientBackup;
 
 private:
     Ui::configDialog *ui;

@@ -52,13 +52,12 @@ QString sync::generateCommand () {
         case linuxos: // same for linux and mac
 
         case macosx:
-            command = (gnulinux::first + clientUser + gnulinux::third +
-                   clientDir + gnulinux::fifth + serverUser +
-                   gnulinux::seventh + serverHostname +
-                   gnulinux::ninth + serverDaily +
-                   gnulinux::eleventh);
+            command = (gnulinux::first + clientDir +
+                       gnulinux::third + serverUser +
+                       gnulinux::fifth + serverHostname +
+                       gnulinux::seventh + serverDaily +
+                       gnulinux::ninth);
             break;
     }
     return command;
 }
-

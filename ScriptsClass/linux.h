@@ -5,17 +5,15 @@
 
 namespace gnulinux
 {
-    static const QString first = "#!/bin/bash\n\ndate > /home/";
-    // second: clientUser
-    static const QString third = "/rsync.log\nrsync -e ssh -av --delete --hard-links --progress \"";
-    // fourth: clientDir
-    static const QString fifth = "/\" ";
-    // sixth: serverUser
-    static const QString seventh = "@";
-    // eighth: serverHostname
-    static const QString ninth = ":";
-    // Tenth: serverDaily
-    static const QString eleventh = "/ >> rsync.log";
+    static const QString first = "#!/bin/bash\n\ndate > rsync.log\nrsync -e ssh -av --delete --hard-links --progress \"";
+    // second: clientDir
+    static const QString third = "\" ";
+    // fourth: serverUser
+    static const QString fifth = "@";
+    // sixth: serverHostname
+    static const QString seventh = ":";
+    // eight: serverDaily
+    static const QString ninth = " >> rsync.log";
 };
 
 #endif // LINUX_H

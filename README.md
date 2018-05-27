@@ -462,7 +462,7 @@ Follow Linux CLients procedure about private and public SSH keys.
 
 #### Mac clients
 
-sh root@IP_ADDRESS
+# ssh root@IP_ADDRESS
 # rm -r ~/.ssh/
 # mkdir ~/.ssh
 # chmod 700 ~/.ssh
