@@ -122,9 +122,7 @@ As root:
 Windows
 
 As Administrator
-- Follow these steps: https://www.bleepingcomputer.com/news/microsoft/heres-how-to-enable-the-built-in-windows-10-openssh-client/
-- Install cwRsync at: https://itefix.net/content/cwrsync-free-edition
-and follow instructions at: https://itefix.net/content/cwrsync-installationusage
+- 
 
 ## Configuration Steps
 
@@ -429,26 +427,7 @@ Therefore, we need to use public / private keys of ssh with:
 
 #### Windows clients
 
-- Create a backup folder inside `C:/`
-- Create the file backup.bat inside the folder: `C:\Program Files\cwRsync\bin`
-with the following content:
-
-```
-@echo off
-set PATH=C:/PATH_TO_CSWRSYNC_BIN
-date /T >>rsync.log
-time /T >>rsync.log
-rsync -e ssh -av --delete --hard-links --progress "/home/NAME_OF_DIR_YOU_CHOSE/" USER@HOSTNAME:./PATH_TO_SERVER_DAILY_BACKUP_FOLDER/ >> rsync.log
-```
-
-Write this code in the file and REPLACE the capital words :
-- PATH_TO_CSWRSYNC_BIN: Path to cwrsync.exe file
-- USER: client username (/home/user/)
-- NAME_OF_DIR_YOU_CHOSE: See step above
-- USER AND HOSTNAME: Used to ssh on your server
-- PATH_TO_SERVER_DAILY_BACKUP_FOLDER: See server side steps: `DAILY_BACKUP=/home/user/DAILY_BACKUP`
-
-!You need to use only one line combining the two last (starts with rsync and finishes with rsync.log)!
+- Create a backup folder inside `C:\`
 
 If you don't know your server's ip address, you can get it with: `ifconfig | grep inet`
 or if it doesn't work: `ip a`
@@ -489,10 +468,3 @@ to use Konqueror by typing this address in your web browser:
 ```
 sftp://user@hostname
 ```
-
-Tasks:
-
-- Create function that writes the QString in a .sh / .bat file
-- Create function that runs the command contained the file ^^
-- Creates function that runs previous command everyday at 3
-- Write documentation for autorun on the three OS
