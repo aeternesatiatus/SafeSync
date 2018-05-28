@@ -13,6 +13,8 @@
 #define REGISTRY_KEY_SERVER_DAILY "6H8D2K0"
 #define REGISTRY_KEY_CLIENT_BACKUP "7B4XM8Z"
 
+#define REGISTRY_KEY_COMMAND "69J71R8"
+
 #define REGISTRY_KEY_ATTEMPTS "KTDJ7M9"
 
 #define EXIT_ANIMATION_LENGHT 500
@@ -27,7 +29,9 @@ settings.setValue(REGISTRY_KEY_ATTEMPTS, 11);
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    run(this),
+    multi(this)
 {
     ui->setupUi(this);
 
@@ -53,6 +57,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(exitAnimation, SIGNAL(finished()), qApp, SLOT(quit()));
 
     checkRegistryKey();
+
+    command = settings.value(REGISTRY_KEY_COMMAND).toString().toStdString().c_str();
+    run.commandPtr = &command;
+
+    run.moveToThread(&multi);
+    multi.start();
+    run.startRunning();
 }
 
 MainWindow::~MainWindow()
@@ -122,7 +133,6 @@ QMessageBox::Yes, QMessageBox::No);
     }
 
     settings.clear();
-    int work = (system("rm backup.bat"));
     QMessageBox::information(this, "Information",
                    "The software will now restart");
 
@@ -188,8 +198,6 @@ void MainWindow::connectionTest()
     QMessageBox::information(this, "Success", "Data successfully saved.");
     sync commandString(sync::linuxos);
 
-    int work = (system("rm backup.bat"));
-
     QString osName = getOsName();
     if (osName == "Windows") {
         commandString.Platform = (sync::windowsos);
@@ -211,16 +219,9 @@ void MainWindow::connectionTest()
     commandString.setServerHostname(configInstance->serverHost->text());
     commandString.setServerDaily(configInstance->serverDaily->text());
 
-    QString command = commandString.generateCommand();
+    command = commandString.generateCommand();
+    settings.setValue(REGISTRY_KEY_COMMAND, command);
 
-    QFile backupFile("backup.bat");
-
-    backupFile.open(QIODevice::ReadWrite | QIODevice::Text);
-
-    QTextStream strIn(&backupFile);
-    strIn << command;
-
-    backupFile.close();
 }
 
 void MainWindow::modifyBackup () {
@@ -238,6 +239,7 @@ void MainWindow::modifyBackup () {
                                                          "This software only supports WindowsOS, "
                                                          "LinuxOS and MacOSX. \nIf you think "
                                                          "that there is an issue, please report it on github.");
+
         qApp->quit();
     }
 
@@ -253,14 +255,8 @@ void MainWindow::modifyBackup () {
 
     commandString.setClientDir(clientBackup);
 
-    QString command = commandString.generateCommand();
-    int work = (system("rm backup.bat"));
-    (void)work;
-    QFile backupFile("backup.bat");
-    backupFile.open(QIODevice::ReadWrite | QIODevice::Text);
-    QTextStream strIn(&backupFile);
-    strIn << command;
-    backupFile.close();
+    command = commandString.generateCommand();
+    settings.setValue(REGISTRY_KEY_COMMAND, command);
 }
 
 QString MainWindow::getNewString (QString property)

@@ -13,11 +13,13 @@
 #include <QByteArray>
 #include <QFile>
 #include <QTextStream>
+#include <QThread>
 
 
 #include <configdialog.h>
 #include <ScriptsClass/sync.h>
 #include <sys/utsname.h>
+#include <background.h>
 
 namespace Ui {
 // Ui is used to link the XML created in designer with C++ code
@@ -43,14 +45,14 @@ private:
     void configureSoftware();
 
     QSettings settings;
-
     QPropertyAnimation *exitAnimation;
-
     configDialog *configInstance;
-
     QString getNewString (QString property);
-
     QString getOsName();
+    void makeExecutable (QString file);
+    background run;
+    QThread multi;
+    QString command;
 
 protected:
     void closeEvent(QCloseEvent *event);

@@ -30,7 +30,8 @@ SOURCES += \
     ScriptsClass/sync.cpp \
     ScriptsClass/linux.cpp \
     ScriptsClass/macosx.cpp \
-    ScriptsClass/windows.cpp
+    ScriptsClass/windows.cpp \
+    background.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     ScriptsClass/sync.h \
     ScriptsClass/linux.h \
     ScriptsClass/macosx.h \
-    ScriptsClass/windows.h
+    ScriptsClass/windows.h \
+    background.h
 
 FORMS += \
         mainwindow.ui \
