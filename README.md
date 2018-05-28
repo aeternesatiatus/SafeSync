@@ -353,40 +353,6 @@ You can also create a backup folder inside home with `mkdir /home/Backup`
 From now on, you will need to place all the data you want to backup inside the
 folder you chose.
 
-2. Create backup.cron file in /usr/sbin
-
-- `nano /usr/sbin/backup.cron`
-
-Write this code in the file and REPLACE the capital words :
-- USER: client username (/home/user/)
-- NAME_OF_DIR_YOU_CHOSE: See step above
-- USER AND HOSTNAME: Used to ssh on your server
-- PATH_TO_SERVER_DAILY_BACKUP_FOLDER: See server side steps: `DAILY_BACKUP=/home/user/DAILY_BACKUP`
-
-```
-date > /home/USER/rsync.log
-rsync -e ssh -av --delete --hard-links --progress "/home/NAME_OF_DIR_YOU_CHOSE/" USER@HOSTNAME:./PATH_TO_SERVER_DAILY_BACKUP_FOLDER/ >> rsync.log
-```
-
-!You need to use only one line combining the two last (starts with rsync and finishes with rsync.log)!
-If you don't know your server's ip address, you can get it with: `ifconfig | grep inet`
-or if it doesn't work: `ip a`
-
-Make the file executable with:
-
-- `chmod u+x /usr/sbin/backup.cron`
-
-From now on, whenever we need to a backup (in this case everyday), we need to call this command:
-`/usr/sbin/backup.cron`
-
-In order to have automatic backup, you need to run these commands:
-
-- `apt-get install cron`
-- `update-rc.d cron defaults`
-- `/etc/init.d/fcron start`
-- `crontab -e`
-- `0 4 * * * /usr/sbin/sauvegardes.cron`
-
 If you're using gentoo, use these commands:
 
 ```
@@ -423,24 +389,30 @@ Therefore, we need to use public / private keys of ssh with:
 # ssh root@IP_ADDRESS
 ```
 
-2. Install software
+2. Install software and fill the required fields
+
+If you don't know your server's ip address, you can get it with: `ifconfig | grep inet`
+or if it doesn't work: `ip a`
 
 #### Windows clients
 
 - Create a backup folder inside `C:\`
 
+- Install Software and fill the required fields
+
 If you don't know your server's ip address, you can get it with: `ifconfig | grep inet`
 or if it doesn't work: `ip a`
 
-In order to have automatic backup, you have to create a task:
+To create a private / public key system with cygwin
 
-- Open: Windows menu / Search / Task Plannifier
-- Create a task that runs everyday at 3PM and executes backup.bat (inside C:/)
-
-Follow Linux CLients procedure about private and public SSH keys.
+download cygwin, select ssh during install, let it install, open it, run ssh-keygen
 
 #### Mac clients
 
+Create a private key / public key system with:
+
+
+```
 # ssh root@IP_ADDRESS
 # rm -r ~/.ssh/
 # mkdir ~/.ssh
@@ -457,10 +429,16 @@ Follow Linux CLients procedure about private and public SSH keys.
 # Type Ctrl-c
 # rm ~/.ssh/id_rsa.pub
 # ssh root@IP_ADDRESS
+```
+
+- Install Software and fill the required fields
+
+If you don't know your server's ip address, you can get it with: `ifconfig | grep inet`
+or if it doesn't work: `ip a`
 
 ### Access Saved files
 
-#### Linux Clients
+#### Linux and Mac Clients
 
 You can use `sftp` or `scp` to access files on your server. The easiest way is
 to use Konqueror by typing this address in your web browser:
