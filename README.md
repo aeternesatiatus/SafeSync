@@ -121,6 +121,8 @@ As root:
 
 Windows
 
+https://docs.joyent.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-windows#git-bash
+
 As Administrator
 - 
 
