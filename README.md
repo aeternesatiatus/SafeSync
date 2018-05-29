@@ -528,7 +528,7 @@ mkdir /home/user/Backup          # Linux and Mac
 or
 mkdir C:\Users\clientuser\Backup # Windows
 ```
-in these steps: link...
+in these steps: [SafeSync Cron](https://github.com/lukalafaye/SafeSync/blob/master/README.md#create-file-safesynccron)
 
 - **Username**: The client username used in the above command
 
