@@ -359,7 +359,7 @@ Output:
 You can either choose an existing one (even home) but make sure you have enough
 memory on the server to store your whole home dir at least three times.
 
-You can also create a backup folder inside home with `mkdir /home/Backup`
+You can also create a backup folder inside home with `mkdir /home/user/Backup`
 
 From now on, you will need to place all the data you want to backup inside the
 folder you chose.
@@ -405,14 +405,14 @@ Therefore, we need to use public / private keys of ssh with:
 #### Windows clients
 
 Then launch **git bash** with Start-R, `C:\Program Files\Git\bin\bash.exe`
-Create a backup folder with: 
+
+1. Create a backup folder with: 
 
 ```
-mkdir C:\Users\clientuserBackup
-
+mkdir C:\Users\clientuser\Backup
 ```
 
-Create a private key / public key system with (in git bash):
+2. Create a private key / public key system with (in git bash):
 
 ```
 # ssh user@IP_ADDRESS
@@ -454,9 +454,19 @@ Wait about two minutes (your server is restarting)
 
 Normally, you shouldn't be asked your password again.
 
-- Install Software
+3. Install Software
 
 #### Mac clients
+
+1. Create the client backup's folder
+
+You can either choose an existing one (even home) but make sure you have enough
+memory on the server to store your whole home dir at least three times.
+
+You can also create a backup folder inside home with `mkdir /home/user/Backup`
+
+From now on, you will need to place all the data you want to backup inside the
+folder you chose.
 
 Create a private key / public key system with:
 
@@ -479,7 +489,7 @@ Create a private key / public key system with:
 # ssh user@IP_ADDRESS
 ```
 
-- Install Software
+2. Install Software
 
 #### Fill the required fills
 
@@ -488,9 +498,39 @@ You can find all the required fields here:
 
 **Server**
 
-- Username: the username you used to log in on your server with: 
-DAILY_BACKUP=/home/user/DAILY_BACKUP # You have to edit this path
+- **Username** and **Hostname**: the username and IP address you used to log in on your server with: 
 
+```
+ssh username@hostname
+(ssh user@IP_ADDRESS)
+```
+
+- **DailybDir**: The path to daily backup folder (server side) created with:
+
+```
+DAILY_BACKUP=/home/user/DAILY_BACKUP # You have to edit this path
+```
+in these steps: link...
+Note that a '/' is required at the beginning and end of path.
+
+Example:
+
+```
+/home/user/DailyBackup/
+```
+
+**Client**
+
+- **BackupDir**: The path to backup folder of client created with:
+
+```
+mkdir /home/user/Backup          # Linux and Mac
+or
+mkdir C:\Users\clientuser\Backup # Windows
+```
+in these steps: link...
+
+- **Username**: The client username used in the above command
 
 ### Access Saved files
 
