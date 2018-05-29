@@ -119,18 +119,27 @@ As root:
 - `brew install openssh`
 - `systemsetup -setremotelogin on`
 
-Windows
+Windows OS
 
-https://docs.joyent.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-windows#git-bash
+As Administrator:
+- Follow instructions at [Git bash](https://docs.joyent.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-windows#generating-ssh-keys) to install Git Bash
 
-As Administrator
-- 
+Then launch it with Start-R, `C:\Program Files\Git\bin\bash.exe` to get a Unix-Like Terminal window
 
 ## Configuration Steps
 
 ### Server Side
 
 1. Create directory structure on server
+
+Connect to your server with: 
+
+```
+ssh user@IP_ADDRESS
+password
+```
+
+For windows users, use **git bash**.
 
 ### Create file: safesync.cron
 
@@ -139,7 +148,7 @@ As Administrator
 ```
 #! /bin/bash
 BACKUP=/home/user/BACKUP # You have to edit this path
-DAILY_BACKUP=/home/user/DAILY_BACKUP
+DAILY_BACKUP=/home/user/DAILY_BACKUP # You have to edit this path
 
 YEAR=$(date +"%Y")
 NB_WEEKS=52
@@ -374,48 +383,85 @@ the backup.cron is called (everyday with our configuration).
 Therefore, we need to use public / private keys of ssh with:
 
 ```
-# ssh root@IP_ADDRESS
+# ssh user@IP_ADDRESS
 # rm -r ~/.ssh/
 # mkdir ~/.ssh
 # chmod 700 ~/.ssh
 # touch ~/.ssh/authorized_keys
 # logout
 # ssh-keygen -t rsa
-# cat ~/.ssh/id_rsa.pub | ssh root@IP_ADDRESS 'cat - >> ~/.ssh/authorized_keys'
+# cat ~/.ssh/id_rsa.pub | ssh user@IP_ADDRESS 'cat - >> ~/.ssh/authorized_keys'
 # ssh root@IP_ADDRESS
 # chmod 600 ~/.ssh/authorized_keys
 # chmod go-w ~/.ssh/
 # reboot
 # Type Ctrl-c
 # rm ~/.ssh/id_rsa.pub
-# ssh root@IP_ADDRESS
+# ssh user@IP_ADDRESS
 ```
 
-2. Install software and fill the required fields
-
-If you don't know your server's ip address, you can get it with: `ifconfig | grep inet`
-or if it doesn't work: `ip a`
+2. Install softwarre
 
 #### Windows clients
 
-- Create a backup folder inside `C:\`
+Then launch **git bash** with Start-R, `C:\Program Files\Git\bin\bash.exe`
+Create a backup folder with: 
 
-- Install Software and fill the required fields
+```
+mkdir C:\Users\clientuserBackup
 
-If you don't know your server's ip address, you can get it with: `ifconfig | grep inet`
-or if it doesn't work: `ip a`
+```
 
-To create a private / public key system with cygwin
+Create a private key / public key system with (in git bash):
 
-download cygwin, select ssh during install, let it install, open it, run ssh-keygen
+```
+# ssh user@IP_ADDRESS
+# rm -r ~/.ssh/
+# mkdir ~/.ssh
+# chmod 700 ~/.ssh
+# touch ~/.ssh/authorized_keys
+# logout
+
+# cd C:\Users\clientuser\
+
+Note than you can use the TAB key to complete folder names. 
+You can also use `ls` to list all the files in the current folder.
+
+# mkdir .ssh
+# ssh-keygen.exe
+
+Press enter key three times
+
+# notepad id_rsa.pub
+
+Copy all content
+
+# ssh user@IP_ADDRESS
+# nano ~/.ssh/authorized_keys
+
+Paste all copied content with CTRL+SHIFT+V
+
+# chmod 600 ~/.ssh/authorized_keys
+# chmod go-w ~/.ssh/
+# reboot
+
+Wait about two minutes (your server is restarting)
+
+# Type Ctrl-c
+# rm ~/.ssh/id_rsa.pub
+# ssh user@IP_ADDRESS
+```
+
+Normally, you shouldn't be asked your password again.
+
+- Install Software
 
 #### Mac clients
 
 Create a private key / public key system with:
 
-
 ```
-# ssh root@IP_ADDRESS
+# ssh user@IP_ADDRESS
 # rm -r ~/.ssh/
 # mkdir ~/.ssh
 # chmod 700 ~/.ssh
@@ -423,20 +469,28 @@ Create a private key / public key system with:
 # logout
 # ssh-keygen -t rsa
 # cat ~/.ssh/id_rsa.pub | pbcopy
-# ssh root@IP_ADDRESS
+# ssh user@IP_ADDRESS
 # pbpaste >> ~/.ssh/authorized_keys'
 # chmod 600 ~/.ssh/authorized_keys
 # chmod go-w ~/.ssh/
 # reboot
 # Type Ctrl-c
 # rm ~/.ssh/id_rsa.pub
-# ssh root@IP_ADDRESS
+# ssh user@IP_ADDRESS
 ```
 
-- Install Software and fill the required fields
+- Install Software
 
-If you don't know your server's ip address, you can get it with: `ifconfig | grep inet`
-or if it doesn't work: `ip a`
+#### Fill the required fills
+
+When running the software, you will be asked to fill some data.
+You can find all the required fields here:
+
+**Server**
+
+- Username: the username you used to log in on your server with: 
+DAILY_BACKUP=/home/user/DAILY_BACKUP # You have to edit this path
+
 
 ### Access Saved files
 
