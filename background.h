@@ -6,6 +6,7 @@
 #include <QTime>
 #include <QMessageBox>
 #include <QWidget>
+#include <QDebug>
 
 #include <sys/utsname.h>
 
@@ -16,8 +17,9 @@ public:
     background(QWidget *mbparent, QObject *parent = 0);
     QString osName = "", *commandPtr;
     QTimer *internalTimer;
-private:
+
     bool done;
+private:
     QString getOsName();
     QWidget *temp;
 public slots:

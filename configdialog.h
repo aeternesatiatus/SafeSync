@@ -22,10 +22,11 @@ public:
                             const QString &serverHost,
                             const QString &serverDaily,
                             const QString &clientBackup,
-                          QWidget *parent = 0);
+                            const QString &clientUser,
+                            QWidget *parent = 0);
     ~configDialog();
 
-    QLineEdit *serverUser, *serverHost, *serverDaily, *clientBackup;
+    QLineEdit *serverUser, *serverHost, *serverDaily, *clientBackup, *clientUser;
 
 private:
     Ui::configDialog *ui;

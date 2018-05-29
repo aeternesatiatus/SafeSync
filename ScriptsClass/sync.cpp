@@ -44,19 +44,21 @@ QString sync::generateCommand () {
     switch (Platform) {
         case windowsos:
             command = (windows::first + cwrsync + windows::third +
-                       clientDir + windows::fifth + serverUser +
-                       windows::seventh + serverHostname +
-                       windows::ninth + serverDaily +
-                       windows::eleventh);
+                       clientUser + windows::fifth + clientDir +
+                       windows::seventh + serverUser +
+                       windows::ninth + serverHostname +
+                       windows::eleventh + serverDaily +
+                       windows::twelfth);
             break;
         case linuxos: // same for linux and mac
 
         case macosx:
-            command = (gnulinux::first + clientDir +
-                       gnulinux::third + serverUser +
-                       gnulinux::fifth + serverHostname +
-                       gnulinux::seventh + serverDaily +
-                       gnulinux::ninth);
+            command = (gnulinux::first + clientUser +
+                       gnulinux::third + clientDir +
+                       gnulinux::fifth + serverUser +
+                       gnulinux::seventh + serverHostname +
+                       gnulinux::ninth + serverDaily +
+                       gnulinux::eleventh);
             break;
     }
     return command;

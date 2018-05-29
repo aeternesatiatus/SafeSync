@@ -14,6 +14,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QThread>
+#include <QDebug>
 
 
 #include <configdialog.h>
@@ -52,6 +53,7 @@ private:
     void makeExecutable (QString file);
     background run;
     QThread multi;
+public:
     QString command;
 
 protected:
@@ -71,6 +73,7 @@ public slots:
     void on_CServerUserButton_clicked();
     void on_CServerDailyButton_clicked();
     void on_CClientBackupButton_clicked();
+    void on_CClientUserButton_clicked();
 
 signals:
 };

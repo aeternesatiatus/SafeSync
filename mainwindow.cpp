@@ -12,6 +12,7 @@
 #define REGISTRY_KEY_SERVER_USERNAME "IRV31SZ"
 #define REGISTRY_KEY_SERVER_DAILY "6H8D2K0"
 #define REGISTRY_KEY_CLIENT_BACKUP "7B4XM8Z"
+#define REGISTRY_KEY_CLIENT_USERNAME "9H4AZ1L"
 
 #define REGISTRY_KEY_COMMAND "69J71R8"
 
@@ -58,12 +59,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     checkRegistryKey();
 
-    command = settings.value(REGISTRY_KEY_COMMAND).toString().toStdString().c_str();
-    run.commandPtr = &command;
+    command = settings.value(REGISTRY_KEY_COMMAND).toString();
 
     run.moveToThread(&multi);
-    multi.start();
+    run.commandPtr = &command;
+    run.internalTimer->stop();
+    run.done = false;
     run.startRunning();
+    multi.start();
+    run.internalTimer->start();
 }
 
 MainWindow::~MainWindow()
@@ -162,10 +166,11 @@ QMessageBox::Yes, QMessageBox::No);
 
     if (recover == QMessageBox::Yes) {
         configInstance = new configDialog(
-        (settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString()),
         (settings.value(REGISTRY_KEY_SERVER_USERNAME).toString()),
+        (settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString()),
         (settings.value(REGISTRY_KEY_SERVER_DAILY).toString()),
         (settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString()),
+        (settings.value(REGISTRY_KEY_CLIENT_USERNAME).toString()),
                     this);
         configInstance->show();
     }
@@ -195,6 +200,8 @@ void MainWindow::connectionTest()
 
     settings.setValue(REGISTRY_KEY_CLIENT_BACKUP,   (configInstance->clientBackup->text()));
 
+    settings.setValue(REGISTRY_KEY_CLIENT_USERNAME, (configInstance->clientUser->text()));
+
     QMessageBox::information(this, "Success", "Data successfully saved.");
     sync commandString(sync::linuxos);
 
@@ -218,6 +225,7 @@ void MainWindow::connectionTest()
     commandString.setServerUser(configInstance->serverUser->text());
     commandString.setServerHostname(configInstance->serverHost->text());
     commandString.setServerDaily(configInstance->serverDaily->text());
+    commandString.setClientUser(configInstance->clientUser->text());
 
     command = commandString.generateCommand();
     settings.setValue(REGISTRY_KEY_COMMAND, command);
@@ -248,12 +256,14 @@ void MainWindow::modifyBackup () {
     QString serverDaily = settings.value(REGISTRY_KEY_SERVER_DAILY).toString();
 
     QString clientBackup = settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString();
+    QString clientUser = settings.value(REGISTRY_KEY_CLIENT_USERNAME).toString();
 
     commandString.setServerHostname(serverHost);
     commandString.setServerUser(serverUser);
     commandString.setServerDaily(serverDaily);
 
     commandString.setClientDir(clientBackup);
+    commandString.setClientUser(clientUser);
 
     command = commandString.generateCommand();
     settings.setValue(REGISTRY_KEY_COMMAND, command);
@@ -291,6 +301,13 @@ void MainWindow::on_CClientBackupButton_clicked()
 {
     QString newValue = getNewString("backup");
     settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, newValue);
+    modifyBackup();
+}
+
+void MainWindow::on_CClientUserButton_clicked()
+{
+    QString newValue = getNewString("user");
+    settings.setValue(REGISTRY_KEY_CLIENT_USERNAME, newValue);
     modifyBackup();
 }
 

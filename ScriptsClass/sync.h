@@ -36,7 +36,6 @@ public:
 
     QString generateCommand ();
 
-private:
     QString clientUser;
     QString clientDir; // path to client backup folder
     QString serverUser;
