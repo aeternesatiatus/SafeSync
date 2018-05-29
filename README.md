@@ -510,7 +510,8 @@ ssh username@hostname
 ```
 DAILY_BACKUP=/home/user/DAILY_BACKUP # You have to edit this path
 ```
-in these steps: link...
+in these steps: [SafeSync Cron](https://github.com/lukalafaye/SafeSync/blob/master/README.md#create-file-safesynccron)
+
 Note that a '/' is required at the beginning and end of path.
 
 Example:
@@ -528,7 +529,11 @@ mkdir /home/user/Backup          # Linux and Mac
 or
 mkdir C:\Users\clientuser\Backup # Windows
 ```
-in these steps: [SafeSync Cron](https://github.com/lukalafaye/SafeSync/blob/master/README.md#create-file-safesynccron)
+in these steps (depending on your OS): 
+
+1. [Linux OS](https://github.com/lukalafaye/SafeSync/blob/master/README.md#linux-clients)
+2. [MAC OSX](https://github.com/lukalafaye/SafeSync/blob/master/README.md#mac-clients)
+3. [Windows OS](https://github.com/lukalafaye/SafeSync/blob/master/README.md#windows-clients)
 
 - **Username**: The client username used in the above command
 
