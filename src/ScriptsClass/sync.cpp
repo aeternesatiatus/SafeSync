@@ -43,12 +43,12 @@ QString sync::generateCommand () {
 
     switch (Platform) {
         case windowsos:
-            command = (windows::first + cwrsync + windows::third +
-                       clientUser + windows::fifth + clientDir +
-                       windows::seventh + serverUser +
-                       windows::ninth + serverHostname +
-                       windows::eleventh + serverDaily +
-                       windows::twelfth);
+            command = (windows::first + clientUser +
+                       windows::third + clientDir +
+                       windows::fifth + serverUser +
+                       windows::seventh + serverHostname +
+                       windows::ninth + serverDaily +
+                       windows::eleventh);
             break;
         case linuxos: // same for linux and mac
 
