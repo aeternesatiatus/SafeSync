@@ -38,6 +38,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setMinimumSize(0, 0);
 
+    qApp->processEvents();
+
     QRect rec = QApplication::desktop()->screenGeometry();
     int height = rec.height() / 4;
     int width = rec.width() / 4;
@@ -57,6 +59,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(exitAnimation, SIGNAL(finished()), qApp, SLOT(quit()));
 
+    multi.start();
+
     checkRegistryKey();
 
     command = settings.value(REGISTRY_KEY_COMMAND).toString();
@@ -66,7 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
     run.internalTimer->stop();
     run.done = false;
     run.startRunning();
-    multi.start();
+
     run.internalTimer->start();
 }
 
@@ -78,6 +82,10 @@ MainWindow::~MainWindow()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->ignore();
+
+    run.internalTimer->stop();
+
+    multi.exit(0);
 
     ui->centralWidget->hide();
 

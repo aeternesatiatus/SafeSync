@@ -8,8 +8,6 @@
 #include <QWidget>
 #include <QDebug>
 
-#include <sys/utsname.h>
-
 class background : public QObject
 {
     Q_OBJECT

@@ -19,7 +19,6 @@
 
 #include <configdialog.h>
 #include <ScriptsClass/sync.h>
-#include <sys/utsname.h>
 #include <background.h>
 
 namespace Ui {
