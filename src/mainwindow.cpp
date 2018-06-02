@@ -4,7 +4,7 @@
 #define TRUE 1
 #define FALSE 0
 
-#define REGISTRY_FILE "settings.ini"
+#define REGISTRY_FILE "configs/settings.ini"
 
 #define REGISTRY_KEY_EXISTS "YDG3X2M"
 #define REGISTRY_KEY_RECOVERABLE "7N3MPX4"
@@ -15,15 +15,17 @@
 #define REGISTRY_KEY_CLIENT_USERNAME "9H4AZ1L"
 
 #define REGISTRY_KEY_COMMAND "69J71R8"
-
 #define REGISTRY_KEY_ATTEMPTS "KTDJ7M9"
+
+#define REGISTRY_DEFAULT_VALUE ""
 
 #define EXIT_ANIMATION_LENGHT 500
 #define EXIT_ANIMATION_CURVE QEasingCurve::InOutCirc
 
 #define FAVORITE_TAB_INDEX 2
-#define RESTART_PROGRAM qApp->quit();\
-QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+#define RESTART_PROGRAM close();\
+    qApp->quit();\
+    QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
 
 #define RESET_ATTEMPTS attempts = 11;\
 settings.setValue(REGISTRY_KEY_ATTEMPTS, 11);
@@ -45,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
     int width = rec.width() / 4;
     move(width, height);
 
-    QSettings settings(QString(REGISTRY_FILE), QSettings::IniFormat, this);
+    QSettings settings(QString(REGISTRY_FILE), QSettings::IniFormat);
 
     ui->file2Group->hide();
     ui->file1Text->hide();
@@ -63,7 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     checkRegistryKey();
 
-    command = settings.value(REGISTRY_KEY_COMMAND).toString();
+    command = settings.value(REGISTRY_KEY_COMMAND, REGISTRY_DEFAULT_VALUE).toString();
 
     run.moveToThread(&multi);
     run.commandPtr = &command;
@@ -196,6 +198,7 @@ QMessageBox::Yes, QMessageBox::No);
 
 void MainWindow::connectionTest()
 {
+
 
     settings.setValue(REGISTRY_KEY_EXISTS, TRUE);
     settings.setValue(REGISTRY_KEY_RECOVERABLE, TRUE);
