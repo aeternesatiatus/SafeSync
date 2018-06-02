@@ -191,6 +191,8 @@ QMessageBox::Yes, QMessageBox::No);
 
     configInstance->setModal(true);
 
+    run.done = true;
+
     connect(configInstance, SIGNAL(rejected()), this, SLOT(close()));
     connect(configInstance, SIGNAL(accepted()), this, SLOT(connectionTest()));
 
@@ -240,6 +242,7 @@ void MainWindow::connectionTest()
 
     command = commandString.generateCommand();
     settings.setValue(REGISTRY_KEY_COMMAND, command);
+    run.done = false;
 
 }
 
