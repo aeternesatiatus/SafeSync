@@ -60,9 +60,7 @@ protected:
 
 public slots:
     // void on_pushButton_clicked();
-    void on_compareCheckBox_clicked();
     // Slots linked with XML (on_instanceName_signal)
-    void on_favoriteFilesButton_clicked();
     // Another slot used for when a button is clicked
     void on_resetButton_clicked(); // Soft reset.
     void on_hResetButton_clicked();// Hard reset.
@@ -71,9 +69,15 @@ public slots:
     void on_CServerHostButton_clicked();
     void on_CServerUserButton_clicked();
     void on_CServerDailyButton_clicked();
+    void on_CServerBackupButton_clicked();
+
     void on_CClientBackupButton_clicked();
     void on_CClientUserButton_clicked();
+
     void on_CLogButton_clicked();
+    void on_CSyncButton_clicked();
+    void on_CSearchButton_clicked();
+
 
 signals:
 };

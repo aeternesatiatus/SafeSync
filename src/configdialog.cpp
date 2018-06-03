@@ -12,6 +12,7 @@ configDialog::configDialog(QWidget *parent) :
 configDialog::configDialog(const QString &serverUser,
                            const QString &serverHost,
                            const QString &serverDaily,
+                           const QString &serverBackup,
                            const QString &clientBackup,
                            const QString &clientUser,
                            QWidget *parent) :
@@ -23,6 +24,8 @@ configDialog::configDialog(const QString &serverUser,
     ui->serverUserLine->setText(serverUser);
     ui->serverHostLine->setText(serverHost);
     ui->serverDailyLine->setText(serverDaily);
+    ui->serverBackupLine->setText(serverBackup);
+
     ui->clientBackupLine->setText(clientBackup);
     ui->clientUserLine->setText(clientUser);
 
@@ -39,12 +42,15 @@ void configDialog::initPtr()
     serverUser = ui->serverUserLine;
     serverHost = ui->serverHostLine;
     serverDaily = ui->serverDailyLine;
+    serverBackup = ui->serverBackupLine;
+
     clientBackup = ui->clientBackupLine;
     clientUser = ui->clientUserLine;
 
     setTabOrder(ui->serverUserLine, ui->serverHostLine);
     setTabOrder(ui->serverHostLine, ui->serverDailyLine);
-    setTabOrder(ui->serverDailyLine, ui->clientBackupLine);
+    setTabOrder(ui->serverDailyLine, ui->serverBackupLine);
+    setTabOrder(ui->serverBackupLine, ui->clientBackupLine);
     setTabOrder(ui->clientBackupLine, ui->clientUserLine);
 
     setModal(true);

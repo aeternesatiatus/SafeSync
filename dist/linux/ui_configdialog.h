@@ -35,6 +35,8 @@ public:
     QLabel *userLabel;
     QLabel *hostLabel_2;
     QLineEdit *serverUserLine;
+    QLineEdit *serverBackupLine;
+    QLabel *label_2;
     QGroupBox *groupBox_5;
     QGridLayout *gridLayout_6;
     QLineEdit *clientUserLine;
@@ -1353,6 +1355,16 @@ public:
 
         gridLayout->addWidget(serverUserLine, 3, 1, 1, 1);
 
+        serverBackupLine = new QLineEdit(groupBox);
+        serverBackupLine->setObjectName(QStringLiteral("serverBackupLine"));
+
+        gridLayout->addWidget(serverBackupLine, 9, 1, 1, 1);
+
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout->addWidget(label_2, 9, 0, 1, 1);
+
 
         gridLayout_5->addWidget(groupBox, 0, 0, 1, 1);
 
@@ -1409,6 +1421,8 @@ public:
         userLabel->setText(QApplication::translate("configDialog", "Username", nullptr));
         hostLabel_2->setText(QApplication::translate("configDialog", "DailybDir", nullptr));
         serverUserLine->setPlaceholderText(QApplication::translate("configDialog", "server user", nullptr));
+        serverBackupLine->setPlaceholderText(QApplication::translate("configDialog", "/path/to/backup/", nullptr));
+        label_2->setText(QApplication::translate("configDialog", "BackupDir", nullptr));
         groupBox_5->setTitle(QApplication::translate("configDialog", "Client", nullptr));
         clientUserLine->setPlaceholderText(QApplication::translate("configDialog", "client user", nullptr));
         userLabel_3->setText(QApplication::translate("configDialog", "BackupDir", nullptr));

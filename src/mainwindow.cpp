@@ -11,6 +11,7 @@
 #define REGISTRY_KEY_SERVER_HOSTNAME "Q2WU6O9"
 #define REGISTRY_KEY_SERVER_USERNAME "IRV31SZ"
 #define REGISTRY_KEY_SERVER_DAILY "6H8D2K0"
+#define REGISTRY_KEY_SERVER_BACKUP "TY78S4K"
 #define REGISTRY_KEY_CLIENT_BACKUP "7B4XM8Z"
 #define REGISTRY_KEY_CLIENT_USERNAME "9H4AZ1L"
 
@@ -48,9 +49,6 @@ MainWindow::MainWindow(QWidget *parent) :
     int width = rec.width() / 4;
     move(width, height);
 
-    ui->file2Group->hide();
-    ui->file1Text->hide();
-    ui->downloadF1Button->hide();
 
     exitAnimation = new QPropertyAnimation(this, "windowOpacity");
     exitAnimation->setEasingCurve(EXIT_ANIMATION_CURVE);
@@ -93,19 +91,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
 //    exitAnimation->setStartValue(geometry());
 //    exitAnimation->setEndValue(QRect(x(), y()+height()/2, width(), 0));
     exitAnimation->start(QPropertyAnimation::DeleteWhenStopped);
-}
-
-void MainWindow::on_compareCheckBox_clicked()
-{
-    ui->file2Group->setHidden(ui->compareCheckBox->isChecked() ^ TRUE);
-    ui->file1Text->setHidden(ui->compareCheckBox->isChecked() ^ TRUE);
-    ui->downloadF1Button->setHidden
-            (ui->compareCheckBox->isChecked() ^ TRUE);
-}
-
-void MainWindow::on_favoriteFilesButton_clicked()
-{
-    ui->tabWidget->setCurrentIndex(FAVORITE_TAB_INDEX);
 }
 
 void MainWindow::checkRegistryKey()
@@ -178,6 +163,7 @@ QMessageBox::Yes, QMessageBox::No);
         (settings.value(REGISTRY_KEY_SERVER_USERNAME).toString()),
         (settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString()),
         (settings.value(REGISTRY_KEY_SERVER_DAILY).toString()),
+        (settings.value(REGISTRY_KEY_SERVER_BACKUP).toString()),
         (settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString()),
         (settings.value(REGISTRY_KEY_CLIENT_USERNAME).toString()),
                     this);
@@ -210,6 +196,8 @@ void MainWindow::connectionTest()
 
     settings.setValue(REGISTRY_KEY_SERVER_DAILY,    (configInstance->serverDaily->text()));
 
+    settings.setValue(REGISTRY_KEY_SERVER_BACKUP,   (configInstance->serverBackup->text()));
+
     settings.setValue(REGISTRY_KEY_CLIENT_BACKUP,   (configInstance->clientBackup->text()));
 
     settings.setValue(REGISTRY_KEY_CLIENT_USERNAME, (configInstance->clientUser->text()));
@@ -232,11 +220,11 @@ void MainWindow::connectionTest()
         qApp->quit();
     }
 
-    commandString.setClientDir(configInstance->clientBackup->text());
-
     commandString.setServerUser(configInstance->serverUser->text());
     commandString.setServerHostname(configInstance->serverHost->text());
     commandString.setServerDaily(configInstance->serverDaily->text());
+
+    commandString.setClientDir(configInstance->clientBackup->text());
     commandString.setClientUser(configInstance->clientUser->text());
 
     command = commandString.generateCommand();
@@ -324,6 +312,13 @@ void MainWindow::on_CClientUserButton_clicked()
     modifyBackup();
 }
 
+void MainWindow::on_CServerBackupButton_clicked()
+{
+    QString newValue = getNewString("backup");
+    settings.setValue(REGISTRY_KEY_SERVER_BACKUP, newValue);
+}
+
+
 void MainWindow::on_CLogButton_clicked()
 {
     QString osName = getOsName();
@@ -345,6 +340,76 @@ void MainWindow::on_CLogButton_clicked()
 
         qApp->quit();
     }
+    (void)work;
+}
+
+void MainWindow::on_CSyncButton_clicked()
+{
+    sync commandString(sync::linuxos);
+    QString osName = getOsName();
+
+    if (osName == "Windows") {
+        commandString.Platform = (sync::windowsos);
+    } else if (osName == "Linux") {
+            commandString.Platform = (sync::linuxos);
+    } else if (osName == "MacOSX") {
+            commandString.Platform = (sync::macosx);
+    } else {
+        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
+                                                         "This software only supports WindowsOS, "
+                                                         "LinuxOS and MacOSX. \nIf you think "
+                                                         "that there is an issue, please report it on github.");
+
+        qApp->quit();
+    }
+
+    QString serverHost = settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString();
+    QString serverUser = settings.value(REGISTRY_KEY_SERVER_USERNAME).toString();
+    QString serverDaily = settings.value(REGISTRY_KEY_SERVER_DAILY).toString();
+
+    QString clientBackup = settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString();
+    QString clientUser = settings.value(REGISTRY_KEY_CLIENT_USERNAME).toString();
+
+    commandString.setServerHostname(serverHost);
+    commandString.setServerUser(serverUser);
+    commandString.setServerDaily(serverDaily);
+
+    commandString.setClientDir(clientBackup);
+    commandString.setClientUser(clientUser);
+
+    command = commandString.generateCommand();
+
+    int work = system (command.toStdString().c_str());
+    (void)work;
+}
+
+void MainWindow::on_CSearchButton_clicked()
+{
+    sync commandString(sync::linuxos);
+    QString osName = getOsName();
+    QString serverHost = settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString();
+    QString serverUser = settings.value(REGISTRY_KEY_SERVER_USERNAME).toString();
+    QString serverBackup = settings.value(REGISTRY_KEY_SERVER_BACKUP).toString();
+
+    QString fileManagerCommand = "";
+    QString sftpCommand = "sftp://" + serverUser + "@" + serverHost + serverBackup;
+    int work = 0;
+    if (osName == "Windows") {
+        fileManagerCommand = "filemanager " + sftpCommand;
+    } else if (osName == "Linux") {
+            fileManagerCommand = "nautilus " + sftpCommand;
+    } else if (osName == "MacOSX") {
+           fileManagerCommand = "nautilus " + sftpCommand;
+
+    } else {
+        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
+                                                         "This software only supports WindowsOS, "
+                                                         "LinuxOS and MacOSX. \nIf you think "
+                                                         "that there is an issue, please report it on github.");
+
+        qApp->quit();
+    }
+    work = system (fileManagerCommand.toStdString().c_str());
     (void)work;
 }
 

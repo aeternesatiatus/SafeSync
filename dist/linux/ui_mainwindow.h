@@ -13,19 +13,15 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTextEdit>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -43,42 +39,9 @@ public:
     QPushButton *CLogButton;
     QGroupBox *groupBox_3;
     QGridLayout *gridLayout_3;
-    QWidget *tab_2;
-    QGridLayout *gridLayout_4;
-    QGroupBox *file2Group;
-    QGridLayout *gridLayout_6;
-    QSpacerItem *horizontalSpacer_7;
-    QPushButton *pushButton_2;
-    QSpacerItem *horizontalSpacer_8;
-    QSpacerItem *horizontalSpacer_9;
-    QPushButton *pushButton_4;
-    QSpacerItem *horizontalSpacer_10;
-    QTextEdit *file2Text;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_6;
-    QGroupBox *groupBox_4;
-    QGridLayout *gridLayout_5;
-    QSpacerItem *horizontalSpacer_3;
-    QPushButton *pushButton;
-    QSpacerItem *horizontalSpacer_5;
-    QSpacerItem *horizontalSpacer_4;
-    QPushButton *pushButton_3;
-    QSpacerItem *horizontalSpacer_6;
-    QTextEdit *file1Text;
-    QCheckBox *compareCheckBox;
-    QPushButton *downloadF1Button;
-    QSpacerItem *horizontalSpacer_2;
-    QWidget *tab_3;
+    QPushButton *CSearchButton;
     QWidget *tab_4;
     QGridLayout *gridLayout_7;
-    QGroupBox *groupBox_5;
-    QGridLayout *gridLayout_9;
-    QPushButton *resetButton;
-    QSpacerItem *horizontalSpacer_17;
-    QPushButton *hResetButton;
-    QSpacerItem *horizontalSpacer_18;
-    QSpacerItem *horizontalSpacer_19;
-    QSpacerItem *horizontalSpacer_20;
     QGroupBox *groupBox_6;
     QGridLayout *gridLayout_8;
     QSpacerItem *horizontalSpacer_21;
@@ -90,6 +53,9 @@ public:
     QSpacerItem *horizontalSpacer_12;
     QSpacerItem *horizontalSpacer_13;
     QSpacerItem *horizontalSpacer_14;
+    QPushButton *CServerBackupButton;
+    QSpacerItem *horizontalSpacer;
+    QSpacerItem *horizontalSpacer_2;
     QGroupBox *groupBox_7;
     QGridLayout *gridLayout_11;
     QPushButton *CClientBackupButton;
@@ -98,15 +64,22 @@ public:
     QSpacerItem *horizontalSpacer_15;
     QSpacerItem *horizontalSpacer_16;
     QPushButton *CClientUserButton;
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
+    QGroupBox *groupBox_5;
+    QGridLayout *gridLayout_9;
+    QPushButton *resetButton;
+    QSpacerItem *horizontalSpacer_17;
+    QPushButton *hResetButton;
+    QSpacerItem *horizontalSpacer_18;
+    QSpacerItem *horizontalSpacer_19;
+    QSpacerItem *horizontalSpacer_20;
+    QPushButton *CSyncButton;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(721, 488);
+        MainWindow->resize(536, 454);
         MainWindow->setStyleSheet(QLatin1String("QToolTip {\n"
 "    border: 1px solid #76797C;\n"
 "    background-color: #5A7566;\n"
@@ -1408,168 +1381,21 @@ public:
         gridLayout_3->setSpacing(6);
         gridLayout_3->setContentsMargins(11, 11, 11, 11);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        CSearchButton = new QPushButton(groupBox_3);
+        CSearchButton->setObjectName(QStringLiteral("CSearchButton"));
+
+        gridLayout_3->addWidget(CSearchButton, 0, 0, 1, 1);
+
 
         horizontalLayout->addWidget(groupBox_3);
 
         tabWidget->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QStringLiteral("tab_2"));
-        gridLayout_4 = new QGridLayout(tab_2);
-        gridLayout_4->setSpacing(6);
-        gridLayout_4->setContentsMargins(11, 11, 11, 11);
-        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
-        file2Group = new QGroupBox(tab_2);
-        file2Group->setObjectName(QStringLiteral("file2Group"));
-        file2Group->setAlignment(Qt::AlignCenter);
-        gridLayout_6 = new QGridLayout(file2Group);
-        gridLayout_6->setSpacing(6);
-        gridLayout_6->setContentsMargins(11, 11, 11, 11);
-        gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
-        horizontalSpacer_7 = new QSpacerItem(161, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer_7, 0, 0, 1, 1);
-
-        pushButton_2 = new QPushButton(file2Group);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        gridLayout_6->addWidget(pushButton_2, 0, 1, 1, 1);
-
-        horizontalSpacer_8 = new QSpacerItem(97, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer_8, 0, 2, 1, 2);
-
-        horizontalSpacer_9 = new QSpacerItem(161, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer_9, 1, 0, 1, 1);
-
-        pushButton_4 = new QPushButton(file2Group);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-
-        gridLayout_6->addWidget(pushButton_4, 1, 1, 1, 1);
-
-        horizontalSpacer_10 = new QSpacerItem(97, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer_10, 1, 2, 1, 2);
-
-        file2Text = new QTextEdit(file2Group);
-        file2Text->setObjectName(QStringLiteral("file2Text"));
-        file2Text->setReadOnly(true);
-
-        gridLayout_6->addWidget(file2Text, 2, 0, 1, 4);
-
-        horizontalSpacer = new QSpacerItem(268, 25, QSizePolicy::Ignored, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer, 3, 0, 1, 3);
-
-        pushButton_6 = new QPushButton(file2Group);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-
-        gridLayout_6->addWidget(pushButton_6, 3, 3, 1, 1);
-
-
-        gridLayout_4->addWidget(file2Group, 0, 1, 1, 1);
-
-        groupBox_4 = new QGroupBox(tab_2);
-        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
-        groupBox_4->setAlignment(Qt::AlignCenter);
-        gridLayout_5 = new QGridLayout(groupBox_4);
-        gridLayout_5->setSpacing(6);
-        gridLayout_5->setContentsMargins(11, 11, 11, 11);
-        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
-        horizontalSpacer_3 = new QSpacerItem(100, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_3, 0, 0, 1, 1);
-
-        pushButton = new QPushButton(groupBox_4);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        gridLayout_5->addWidget(pushButton, 0, 1, 1, 1);
-
-        horizontalSpacer_5 = new QSpacerItem(158, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_5, 0, 2, 1, 2);
-
-        horizontalSpacer_4 = new QSpacerItem(100, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_4, 1, 0, 1, 1);
-
-        pushButton_3 = new QPushButton(groupBox_4);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-
-        gridLayout_5->addWidget(pushButton_3, 1, 1, 1, 1);
-
-        horizontalSpacer_6 = new QSpacerItem(158, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_6, 1, 2, 1, 2);
-
-        file1Text = new QTextEdit(groupBox_4);
-        file1Text->setObjectName(QStringLiteral("file1Text"));
-        file1Text->setReadOnly(true);
-
-        gridLayout_5->addWidget(file1Text, 2, 0, 1, 4);
-
-        compareCheckBox = new QCheckBox(groupBox_4);
-        compareCheckBox->setObjectName(QStringLiteral("compareCheckBox"));
-
-        gridLayout_5->addWidget(compareCheckBox, 3, 0, 1, 1);
-
-        downloadF1Button = new QPushButton(groupBox_4);
-        downloadF1Button->setObjectName(QStringLiteral("downloadF1Button"));
-
-        gridLayout_5->addWidget(downloadF1Button, 3, 3, 1, 1);
-
-        horizontalSpacer_2 = new QSpacerItem(168, 25, QSizePolicy::Minimum, QSizePolicy::Minimum);
-
-        gridLayout_5->addItem(horizontalSpacer_2, 3, 1, 1, 2);
-
-
-        gridLayout_4->addWidget(groupBox_4, 0, 0, 1, 1);
-
-        tabWidget->addTab(tab_2, QString());
-        tab_3 = new QWidget();
-        tab_3->setObjectName(QStringLiteral("tab_3"));
-        tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QStringLiteral("tab_4"));
         gridLayout_7 = new QGridLayout(tab_4);
         gridLayout_7->setSpacing(6);
         gridLayout_7->setContentsMargins(11, 11, 11, 11);
         gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
-        groupBox_5 = new QGroupBox(tab_4);
-        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
-        gridLayout_9 = new QGridLayout(groupBox_5);
-        gridLayout_9->setSpacing(6);
-        gridLayout_9->setContentsMargins(11, 11, 11, 11);
-        gridLayout_9->setObjectName(QStringLiteral("gridLayout_9"));
-        resetButton = new QPushButton(groupBox_5);
-        resetButton->setObjectName(QStringLiteral("resetButton"));
-
-        gridLayout_9->addWidget(resetButton, 0, 1, 1, 1);
-
-        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_9->addItem(horizontalSpacer_17, 0, 0, 1, 1);
-
-        hResetButton = new QPushButton(groupBox_5);
-        hResetButton->setObjectName(QStringLiteral("hResetButton"));
-
-        gridLayout_9->addWidget(hResetButton, 1, 1, 1, 1);
-
-        horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_9->addItem(horizontalSpacer_18, 0, 2, 1, 1);
-
-        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_9->addItem(horizontalSpacer_19, 1, 0, 1, 1);
-
-        horizontalSpacer_20 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_9->addItem(horizontalSpacer_20, 1, 2, 1, 1);
-
-
-        gridLayout_7->addWidget(groupBox_5, 0, 2, 2, 1);
-
         groupBox_6 = new QGroupBox(tab_4);
         groupBox_6->setObjectName(QStringLiteral("groupBox_6"));
         gridLayout_8 = new QGridLayout(groupBox_6);
@@ -1615,6 +1441,19 @@ public:
 
         gridLayout_8->addItem(horizontalSpacer_14, 1, 2, 1, 1);
 
+        CServerBackupButton = new QPushButton(groupBox_6);
+        CServerBackupButton->setObjectName(QStringLiteral("CServerBackupButton"));
+
+        gridLayout_8->addWidget(CServerBackupButton, 3, 1, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_8->addItem(horizontalSpacer, 3, 0, 1, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_8->addItem(horizontalSpacer_2, 3, 2, 1, 1);
+
 
         gridLayout_7->addWidget(groupBox_6, 0, 0, 1, 1);
 
@@ -1651,27 +1490,60 @@ public:
         gridLayout_11->addWidget(CClientUserButton, 1, 1, 1, 1);
 
 
-        gridLayout_7->addWidget(groupBox_7, 1, 0, 1, 1);
+        gridLayout_7->addWidget(groupBox_7, 2, 0, 1, 1);
+
+        groupBox_5 = new QGroupBox(tab_4);
+        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
+        gridLayout_9 = new QGridLayout(groupBox_5);
+        gridLayout_9->setSpacing(6);
+        gridLayout_9->setContentsMargins(11, 11, 11, 11);
+        gridLayout_9->setObjectName(QStringLiteral("gridLayout_9"));
+        resetButton = new QPushButton(groupBox_5);
+        resetButton->setObjectName(QStringLiteral("resetButton"));
+
+        gridLayout_9->addWidget(resetButton, 0, 1, 1, 1);
+
+        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_9->addItem(horizontalSpacer_17, 0, 0, 1, 1);
+
+        hResetButton = new QPushButton(groupBox_5);
+        hResetButton->setObjectName(QStringLiteral("hResetButton"));
+
+        gridLayout_9->addWidget(hResetButton, 1, 1, 1, 1);
+
+        horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_9->addItem(horizontalSpacer_18, 0, 2, 1, 1);
+
+        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_9->addItem(horizontalSpacer_19, 1, 0, 1, 1);
+
+        horizontalSpacer_20 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_9->addItem(horizontalSpacer_20, 1, 2, 1, 1);
+
+
+        gridLayout_7->addWidget(groupBox_5, 0, 2, 3, 1);
 
         tabWidget->addTab(tab_4, QString());
 
         gridLayout->addWidget(tabWidget, 0, 0, 1, 1);
 
+        CSyncButton = new QPushButton(centralWidget);
+        CSyncButton->setObjectName(QStringLiteral("CSyncButton"));
+
+        gridLayout->addWidget(CSyncButton, 1, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 721, 26));
-        MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1682,30 +1554,22 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Server backup", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Log", nullptr));
         CLogButton->setText(QApplication::translate("MainWindow", "Display Log", nullptr));
-        groupBox_3->setTitle(QApplication::translate("MainWindow", "Recent searches", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Statistics", nullptr));
-        file2Group->setTitle(QApplication::translate("MainWindow", "File 2", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Search file", nullptr));
-        pushButton_4->setText(QApplication::translate("MainWindow", "Display file", nullptr));
-        pushButton_6->setText(QApplication::translate("MainWindow", "Download file", nullptr));
-        groupBox_4->setTitle(QApplication::translate("MainWindow", "File 1", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "Search file", nullptr));
-        pushButton_3->setText(QApplication::translate("MainWindow", "Display file", nullptr));
-        compareCheckBox->setText(QApplication::translate("MainWindow", "Compare", nullptr));
-        downloadF1Button->setText(QApplication::translate("MainWindow", "Download file", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Search", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Favorites", nullptr));
-        groupBox_5->setTitle(QApplication::translate("MainWindow", "Reset", nullptr));
-        resetButton->setText(QApplication::translate("MainWindow", "SOFT RESET", nullptr));
-        hResetButton->setText(QApplication::translate("MainWindow", "HARD RESET", nullptr));
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "Search", nullptr));
+        CSearchButton->setText(QApplication::translate("MainWindow", "Search File", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Actions", nullptr));
         groupBox_6->setTitle(QApplication::translate("MainWindow", "SERVER", nullptr));
         CServerDailyButton->setText(QApplication::translate("MainWindow", "Change Daily Path", nullptr));
         CServerUserButton->setText(QApplication::translate("MainWindow", "Change username", nullptr));
         CServerHostButton->setText(QApplication::translate("MainWindow", "Change hostname", nullptr));
+        CServerBackupButton->setText(QApplication::translate("MainWindow", "Change Backup Path", nullptr));
         groupBox_7->setTitle(QApplication::translate("MainWindow", "CLIENT", nullptr));
         CClientBackupButton->setText(QApplication::translate("MainWindow", "Change Backup Path", nullptr));
         CClientUserButton->setText(QApplication::translate("MainWindow", "Change Client User", nullptr));
+        groupBox_5->setTitle(QApplication::translate("MainWindow", "Reset", nullptr));
+        resetButton->setText(QApplication::translate("MainWindow", "SOFT RESET", nullptr));
+        hResetButton->setText(QApplication::translate("MainWindow", "HARD RESET", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Settings", nullptr));
+        CSyncButton->setText(QApplication::translate("MainWindow", "Manual Sync", nullptr));
     } // retranslateUi
 
 };

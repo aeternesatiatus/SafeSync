@@ -21,12 +21,13 @@ public:
     explicit configDialog(const QString &serverUser,
                             const QString &serverHost,
                             const QString &serverDaily,
+                            const QString &serverBackup,
                             const QString &clientBackup,
                             const QString &clientUser,
                             QWidget *parent = 0);
     ~configDialog();
 
-    QLineEdit *serverUser, *serverHost, *serverDaily, *clientBackup, *clientUser;
+    QLineEdit *serverUser, *serverHost, *serverDaily, *serverBackup, *clientBackup, *clientUser;
 
 private:
     Ui::configDialog *ui;

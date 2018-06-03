@@ -13,7 +13,7 @@ void background::startRunning()
 }
 void background::verify() {
     int currentHour = QTime::currentTime().hour();
-    if (currentHour == 18) {
+    if (currentHour == 15) {
         if (done == false) {
             done = true;
             QString command = *commandPtr;
