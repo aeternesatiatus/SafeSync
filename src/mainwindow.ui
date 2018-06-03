@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>721</width>
-    <height>488</height>
+    <width>689</width>
+    <height>462</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1253,7 +1253,7 @@ QDateEdit::down-arrow:focus {
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+    <item row="0" column="0" colspan="3">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>3</number>
@@ -1264,74 +1264,6 @@ QDateEdit::down-arrow:focus {
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QGroupBox" name="groupBox">
-          <property name="title">
-           <string>General</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout">
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>Synchronised files:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="syncFilesLabel">
-             <property name="text">
-              <string>Value</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Synchronised folders:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="syncFoldersLabel">
-             <property name="text">
-              <string>Value</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_7">
-             <property name="text">
-              <string>Total space used:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="spaceUsageLabel">
-             <property name="text">
-              <string>Value</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_5">
-             <property name="text">
-              <string>Favorites files:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="favoriteFilesButton">
-             <property name="text">
-              <string>Value</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
          <widget class="QGroupBox" name="groupBox_2">
           <property name="title">
            <string>Log</string>
@@ -1340,51 +1272,11 @@ QDateEdit::down-arrow:focus {
            <set>Qt::AlignCenter</set>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <widget class="QScrollArea" name="logScroll">
-             <property name="widgetResizable">
-              <bool>true</bool>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="CLogButton">
+             <property name="text">
+              <string>Display Log</string>
              </property>
-             <widget class="QWidget" name="scrollAreaWidgetContents">
-              <property name="geometry">
-               <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>222</width>
-                <height>292</height>
-               </rect>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_2">
-               <item>
-                <widget class="QLabel" name="label_4">
-                 <property name="text">
-                  <string>Last backup:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="lastBackupLabel">
-                 <property name="text">
-                  <string>Value</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_8">
-                 <property name="text">
-                  <string>Actions:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="actionsValues">
-                 <property name="text">
-                  <string>Values</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
             </widget>
            </item>
           </layout>
@@ -1398,25 +1290,7 @@ QDateEdit::down-arrow:focus {
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
-            <widget class="QScrollArea" name="recentSearchesScroll">
-             <property name="widgetResizable">
-              <bool>true</bool>
-             </property>
-             <widget class="QWidget" name="scrollAreaWidgetContents_2">
-              <property name="geometry">
-               <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>221</width>
-                <height>292</height>
-               </rect>
-              </property>
-             </widget>
-            </widget>
-           </item>
-          </layout>
+          <layout class="QGridLayout" name="gridLayout_3"/>
          </widget>
         </item>
        </layout>
@@ -1947,6 +1821,39 @@ QDateEdit::down-arrow:focus {
       </widget>
      </widget>
     </item>
+    <item row="1" column="0">
+     <spacer name="horizontalSpacer_23">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="CSyncButton">
+      <property name="text">
+       <string>Manual Sync</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <spacer name="horizontalSpacer_24">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>278</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -1954,7 +1861,7 @@ QDateEdit::down-arrow:focus {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>721</width>
+     <width>689</width>
      <height>26</height>
     </rect>
    </property>

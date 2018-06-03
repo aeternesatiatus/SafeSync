@@ -21,13 +21,11 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -41,7 +39,10 @@ public:
     QWidget *tab;
     QHBoxLayout *horizontalLayout;
     QGroupBox *groupBox_2;
+    QGridLayout *gridLayout_2;
     QPushButton *CLogButton;
+    QGroupBox *groupBox_3;
+    QGridLayout *gridLayout_3;
     QWidget *tab_2;
     QGridLayout *gridLayout_4;
     QGroupBox *file2Group;
@@ -97,13 +98,6 @@ public:
     QSpacerItem *horizontalSpacer_15;
     QSpacerItem *horizontalSpacer_16;
     QPushButton *CClientUserButton;
-    QGroupBox *groupBox_3;
-    QGridLayout *gridLayout_3;
-    QScrollArea *recentSearchesScroll;
-    QWidget *scrollAreaWidgetContents_2;
-    QGroupBox *groupBox;
-    QVBoxLayout *verticalLayout;
-    QPushButton *favoriteFilesButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -1395,11 +1389,27 @@ public:
         groupBox_2 = new QGroupBox(tab);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         groupBox_2->setAlignment(Qt::AlignCenter);
+        gridLayout_2 = new QGridLayout(groupBox_2);
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setContentsMargins(11, 11, 11, 11);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         CLogButton = new QPushButton(groupBox_2);
         CLogButton->setObjectName(QStringLiteral("CLogButton"));
-        CLogButton->setGeometry(QRect(130, 150, 181, 33));
+
+        gridLayout_2->addWidget(CLogButton, 0, 1, 1, 1);
+
 
         horizontalLayout->addWidget(groupBox_2);
+
+        groupBox_3 = new QGroupBox(tab);
+        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        groupBox_3->setAlignment(Qt::AlignCenter);
+        gridLayout_3 = new QGridLayout(groupBox_3);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+
+        horizontalLayout->addWidget(groupBox_3);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -1647,41 +1657,6 @@ public:
 
         gridLayout->addWidget(tabWidget, 0, 0, 1, 1);
 
-        groupBox_3 = new QGroupBox(centralWidget);
-        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-        groupBox_3->setAlignment(Qt::AlignCenter);
-        gridLayout_3 = new QGridLayout(groupBox_3);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        recentSearchesScroll = new QScrollArea(groupBox_3);
-        recentSearchesScroll->setObjectName(QStringLiteral("recentSearchesScroll"));
-        recentSearchesScroll->setWidgetResizable(true);
-        scrollAreaWidgetContents_2 = new QWidget();
-        scrollAreaWidgetContents_2->setObjectName(QStringLiteral("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 102, 356));
-        recentSearchesScroll->setWidget(scrollAreaWidgetContents_2);
-
-        gridLayout_3->addWidget(recentSearchesScroll, 1, 0, 1, 1);
-
-
-        gridLayout->addWidget(groupBox_3, 0, 2, 1, 1);
-
-        groupBox = new QGroupBox(centralWidget);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setAlignment(Qt::AlignCenter);
-        verticalLayout = new QVBoxLayout(groupBox);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        favoriteFilesButton = new QPushButton(groupBox);
-        favoriteFilesButton->setObjectName(QStringLiteral("favoriteFilesButton"));
-
-        verticalLayout->addWidget(favoriteFilesButton);
-
-
-        gridLayout->addWidget(groupBox, 0, 1, 1, 1);
-
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -1706,7 +1681,8 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Server backup", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Log", nullptr));
-        CLogButton->setText(QApplication::translate("MainWindow", "Open log", nullptr));
+        CLogButton->setText(QApplication::translate("MainWindow", "Display Log", nullptr));
+        groupBox_3->setTitle(QApplication::translate("MainWindow", "Recent searches", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Statistics", nullptr));
         file2Group->setTitle(QApplication::translate("MainWindow", "File 2", nullptr));
         pushButton_2->setText(QApplication::translate("MainWindow", "Search file", nullptr));
@@ -1730,9 +1706,6 @@ public:
         CClientBackupButton->setText(QApplication::translate("MainWindow", "Change Backup Path", nullptr));
         CClientUserButton->setText(QApplication::translate("MainWindow", "Change Client User", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Settings", nullptr));
-        groupBox_3->setTitle(QApplication::translate("MainWindow", "Recent searches", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "General", nullptr));
-        favoriteFilesButton->setText(QApplication::translate("MainWindow", "Value", nullptr));
     } // retranslateUi
 
 };

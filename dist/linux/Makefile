@@ -35,7 +35,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = tests1.0.0
-DISTDIR = /home/luka/Documents/Github/SafeSync/SafeSync/dist/linux/.tmp/tests1.0.0
+DISTDIR = /home/luka/Documents/Github/Safe/SafeSync/dist/linux/.tmp/tests1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/luka/Qt5.10.1/5.10.1/gcc_64/lib
 LIBS          = $(SUBLIBS) -L/home/luka/Qt5.10.1/5.10.1/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -857,7 +857,7 @@ moc_mainwindow.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QMainWin
 		../../src/mainwindow.h \
 		moc_predefs.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc
-	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/mainwindow.h -o moc_mainwindow.cpp
+	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/Safe/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/mainwindow.h -o moc_mainwindow.cpp
 
 moc_configdialog.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QDialog \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qdialog.h \
@@ -979,7 +979,7 @@ moc_configdialog.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QDialo
 		../../src/configdialog.h \
 		moc_predefs.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc
-	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/configdialog.h -o moc_configdialog.cpp
+	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/Safe/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/configdialog.h -o moc_configdialog.cpp
 
 moc_sync.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QObject \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qobject.h \
@@ -1038,7 +1038,7 @@ moc_sync.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QObject \
 		../../src/ScriptsClass/sync.h \
 		moc_predefs.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc
-	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/ScriptsClass/sync.h -o moc_sync.cpp
+	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/Safe/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/ScriptsClass/sync.h -o moc_sync.cpp
 
 moc_background.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QObject \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qobject.h \
@@ -1156,7 +1156,7 @@ moc_background.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QObject \
 		../../src/background.h \
 		moc_predefs.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc
-	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/background.h -o moc_background.cpp
+	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/Safe/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/background.h -o moc_background.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1543,8 +1543,6 @@ mainwindow.o: ../../src/mainwindow.cpp ../../src/mainwindow.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qstyle.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QLabel \
-		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qlabel.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QMenuBar \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qmenubar.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qmenu.h \
