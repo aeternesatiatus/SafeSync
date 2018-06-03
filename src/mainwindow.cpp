@@ -33,6 +33,7 @@ settings.setValue(REGISTRY_KEY_ATTEMPTS, 11);
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
+    settings("settings.ini", QSettings::IniFormat, this),
     run(this),
     multi(this)
 {
@@ -46,8 +47,6 @@ MainWindow::MainWindow(QWidget *parent) :
     int height = rec.height() / 4;
     int width = rec.width() / 4;
     move(width, height);
-
-    QSettings settings(QString(REGISTRY_FILE), QSettings::IniFormat);
 
     ui->file2Group->hide();
     ui->file1Text->hide();
