@@ -35,7 +35,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = tests1.0.0
-DISTDIR = /home/luka/Documents/Github/SafeSync/dist/linux/.tmp/tests1.0.0
+DISTDIR = /home/luka/Documents/Github/SafeSync/SafeSync/dist/linux/.tmp/tests1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/luka/Qt5.10.1/5.10.1/gcc_64/lib
 LIBS          = $(SUBLIBS) -L/home/luka/Qt5.10.1/5.10.1/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -217,6 +217,7 @@ DIST          = ../../src/darkstyle.qss \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/qt_config.prf \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/spec_post.prf \
+		../../src/.qmake.stash \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/toolchain.prf \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -400,6 +401,7 @@ Makefile: ../../src/tests.pro /home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g+
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/qt_config.prf \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/toolchain.prf \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -564,6 +566,7 @@ Makefile: ../../src/tests.pro /home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g+
 /home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/qt_config.prf:
 /home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/toolchain.prf:
 /home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/features/default_pre.prf:
@@ -854,7 +857,7 @@ moc_mainwindow.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QMainWin
 		../../src/mainwindow.h \
 		moc_predefs.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc
-	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/mainwindow.h -o moc_mainwindow.cpp
+	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/mainwindow.h -o moc_mainwindow.cpp
 
 moc_configdialog.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QDialog \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qdialog.h \
@@ -976,7 +979,7 @@ moc_configdialog.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QDialo
 		../../src/configdialog.h \
 		moc_predefs.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc
-	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/configdialog.h -o moc_configdialog.cpp
+	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/configdialog.h -o moc_configdialog.cpp
 
 moc_sync.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QObject \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qobject.h \
@@ -1035,7 +1038,7 @@ moc_sync.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QObject \
 		../../src/ScriptsClass/sync.h \
 		moc_predefs.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc
-	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/ScriptsClass/sync.h -o moc_sync.cpp
+	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/ScriptsClass/sync.h -o moc_sync.cpp
 
 moc_background.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QObject \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qobject.h \
@@ -1153,7 +1156,7 @@ moc_background.cpp: /home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QObject \
 		../../src/background.h \
 		moc_predefs.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc
-	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/background.h -o moc_background.cpp
+	/home/luka/Qt5.10.1/5.10.1/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/luka/Qt5.10.1/5.10.1/gcc_64/mkspecs/linux-g++ -I/home/luka/Documents/Github/SafeSync/SafeSync/src -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui -I/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/background.h -o moc_background.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1500,7 +1503,65 @@ mainwindow.o: ../../src/mainwindow.cpp ../../src/mainwindow.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QTime \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qdatetime.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QWidget \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QVariant \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QAction \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qaction.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QApplication \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qapplication.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qeventloop.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui/qguiapplication.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui/qinputmethod.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QCheckBox \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qcheckbox.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QGridLayout \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qlayout.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QGroupBox \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QHeaderView \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui/qvalidator.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qregularexpression.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qslider.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qstyle.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QLabel \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qlabel.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QMenuBar \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qmenu.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QPushButton \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QScrollArea \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qscrollarea.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QStatusBar \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qstatusbar.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QTabWidget \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QTextEdit \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui/qtextdocument.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QToolBar \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qtoolbar.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../src/mainwindow.cpp
 
 configdialog.o: ../../src/configdialog.cpp ../../src/configdialog.h \
@@ -1621,7 +1682,48 @@ configdialog.o: ../../src/configdialog.cpp ../../src/configdialog.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QFileInfo \
 		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qfileinfo.h \
-		ui_configdialog.h
+		ui_configdialog.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/QVariant \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QAction \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qaction.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui/qicon.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QApplication \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qapplication.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qeventloop.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui/qguiapplication.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui/qinputmethod.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QDialogButtonBox \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QGridLayout \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qlayout.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QGroupBox \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QHeaderView \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qheaderview.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtGui/qvalidator.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtCore/qregularexpression.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qslider.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qstyle.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/QLabel \
+		/home/luka/Qt5.10.1/5.10.1/gcc_64/include/QtWidgets/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o configdialog.o ../../src/configdialog.cpp
 
 sync.o: ../../src/ScriptsClass/sync.cpp ../../src/ScriptsClass/sync.h \
