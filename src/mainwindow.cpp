@@ -324,27 +324,6 @@ void MainWindow::on_CClientUserButton_clicked()
     modifyBackup();
 }
 
-void MainWindow::on_CLogButton_clicked()
-{
-    QString osName = getOsName();
-    int work = 0;
-    if (osName == "Windows") {
-        work = system ("notepad wrsync.log");
-    } else if (osName == "Linux") {
-            work = system ("cat rsync.log");
-    } else if (osName == "MacOSX") {
-            work = system ("open rsync.log");
-    } else {
-        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
-                                                         "This software only supports WindowsOS, "
-                                                         "LinuxOS and MacOSX. \nIf you think "
-                                                         "that there is an issue, please report it on github.");
-
-        qApp->quit();
-    }
-    (void)work;
-}
-
 QString MainWindow::getOsName()
 {
     #ifdef _WIN32

@@ -5,9 +5,9 @@
 
 namespace windows
 {
-    static const QString first = "date /T >> rsync.log & time /T >> rsync.log & rsync -e 'ssh -i C:\\Users\\";
+    static const QString first = "@echo off & date /T >> rsync.log & time /T >> rsync.log & rsync -e 'ssh -i C:\\Users\\";
     // second clientUser
-    static const QString third = "\\.ssh\\id_rsa' -av --delete --hard-links --progress ' //localhost";
+    static const QString third = "\\.ssh\\id_rsa' -av --delete --hard-links --progress '";
     // fourth: clientDir
     static const QString fifth = "' ";
     // sixth: serverUser

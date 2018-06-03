@@ -73,7 +73,6 @@ public slots:
     void on_CServerDailyButton_clicked();
     void on_CClientBackupButton_clicked();
     void on_CClientUserButton_clicked();
-    void on_CLogButton_clicked();
 
 signals:
 };
