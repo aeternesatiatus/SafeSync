@@ -22,7 +22,7 @@ void background::verify() {
             (void)work;
         }
     } else {
-        done = true;
+        done = false;
         return;
     }
 }
