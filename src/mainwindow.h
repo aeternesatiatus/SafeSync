@@ -20,6 +20,7 @@
 #include <configdialog.h>
 #include <ScriptsClass/sync.h>
 #include <background.h>
+#include <classes/buttonwithimage.h>
 
 namespace Ui {
 // Ui is used to link the XML created in designer with C++ code
@@ -43,6 +44,8 @@ private:
     void checkRegistryKey();
     bool LogIn();
     void configureSoftware();
+
+    ButtonWithImage *aButton;
 
     QSettings settings;
     QPropertyAnimation *exitAnimation;
