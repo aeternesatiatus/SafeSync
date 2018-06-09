@@ -31,7 +31,8 @@ SOURCES += \
     ScriptsClass/linux.cpp \
     ScriptsClass/macosx.cpp \
     ScriptsClass/windows.cpp \
-    background.cpp
+    background.cpp \
+    classes/buttonwithimage.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
     ScriptsClass/linux.h \
     ScriptsClass/macosx.h \
     ScriptsClass/windows.h \
-    background.h
+    background.h \
+    classes/buttonwithimage.h
 
 FORMS += \
         mainwindow.ui \

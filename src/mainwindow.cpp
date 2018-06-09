@@ -70,6 +70,11 @@ MainWindow::MainWindow(QWidget *parent) :
     run.done = false;
     run.startRunning();
 
+    aButton = new ButtonWithImage(":/qss_icons/rc/close-pressed.png", "TEST", this);
+    aButton->move(10, 400);
+
+    ui->gridLayout->addWidget(aButton, 3, 0);
+
     run.internalTimer->start();
 }
 

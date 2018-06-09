@@ -40,16 +40,5 @@
         <file>rc/up_arrow_disabled.png</file>
         <file>rc/Vmovetoolbar.png</file>
         <file>rc/Vsepartoolbar.png</file>
-        <file>rc/CwRsync/bin/cygcrypto-1.0.0.dll</file>
-        <file>rc/CwRsync/bin/cyggcc_s-1.dll</file>
-        <file>rc/CwRsync/bin/cygiconv-2.dll</file>
-        <file>rc/CwRsync/bin/cygintl-8.dll</file>
-        <file>rc/CwRsync/bin/cygpopt-0.dll</file>
-        <file>rc/CwRsync/bin/cygssp-0.dll</file>
-        <file>rc/CwRsync/bin/cygwin1.dll</file>
-        <file>rc/CwRsync/bin/cygz.dll</file>
-        <file>rc/CwRsync/bin/rsync.exe</file>
-        <file>rc/CwRsync/bin/ssh.exe</file>
-        <file>rc/CwRsync/bin/ssh-keygen.exe</file>
     </qresource>
 </RCC>
