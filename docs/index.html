@@ -1,0 +1,63 @@
+---
+layout: html
+title: Home
+---
+
+<header class="grid">
+
+	<div class="row">
+		<div class="col col-5-of-12 col-m-4-of-4">
+			<img src="{{site.baseurl}}/img/screenshot.png" alt="">
+		</div>
+		<div class="col col-5-of-12 col-m-4-of-4">
+			<h1>SafeSync</h1>
+			<h3>An automatic incremental backup tool used to synchronize a client's folder with a server's daily.</h3>
+		</div>
+	</div>
+
+</header>
+
+<main>
+
+	<section id="features">
+		<div class="container row">
+			<div class="col col-4-of-12 col-m-4-of-4">
+				<lunar-icon icon="shield"></lunar-icon>
+				<h2>Safe</h2>
+				<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+			<div class="col col-4-of-12 col-m-4-of-4">
+				<lunar-icon icon="monitor"></lunar-icon>
+				<h2>Cross-platform</h2>
+				<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+			<div class="col col-4-of-12 col-m-4-of-4">
+				<lunar-icon icon="justice"></lunar-icon>
+				<h2>Open Source</h2>
+				<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="cta">
+		<div class="container row">
+			<div class="col col-5-of-12 col-m-4-of-4">
+				<h2>{{site.version}}</h2>
+				<p><a href="{{site.repo}}/releases/tag/{{site.version}}">
+					View release notes
+				</a></p>
+			</div>
+			<div class="col col-5-of-12 col-m-4-of-4">
+				<a href="{{site.repo}}/releases/tag/{{site.version}}"
+				   class="btn">
+					<lunar-icon icon="download"></lunar-icon>
+					Download
+				</a>
+			</div>
+		</div>
+	</section>
+
+</main>
