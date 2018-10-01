@@ -13,7 +13,7 @@
 #define REGISTRY_KEY_SERVER_DAILY "6H8D2K0"
 #define REGISTRY_KEY_SERVER_BACKUP "TY78S4K"
 #define REGISTRY_KEY_CLIENT_BACKUP "7B4XM8Z"
-#define REGISTRY_KEY_CLIENT_USERNAME "9H4AZ1L"
+#define REGISTRY_KEY_CLIENT_KEY "6H01MW2"
 
 #define REGISTRY_KEY_COMMAND "69J71R8"
 #define REGISTRY_KEY_ATTEMPTS "KTDJ7M9"
@@ -69,11 +69,6 @@ MainWindow::MainWindow(QWidget *parent) :
     run.internalTimer->stop();
     run.done = false;
     run.startRunning();
-
-    aButton = new ButtonWithImage(":/qss_icons/rc/close-pressed.png", "TEST", this);
-    aButton->move(10, 400);
-
-    ui->gridLayout->addWidget(aButton, 3, 0);
 
     run.internalTimer->start();
 }
@@ -170,7 +165,7 @@ QMessageBox::Yes, QMessageBox::No);
         (settings.value(REGISTRY_KEY_SERVER_DAILY).toString()),
         (settings.value(REGISTRY_KEY_SERVER_BACKUP).toString()),
         (settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString()),
-        (settings.value(REGISTRY_KEY_CLIENT_USERNAME).toString()),
+        (settings.value(REGISTRY_KEY_CLIENT_KEY).toString()),
                     this);
         configInstance->show();
     }
@@ -205,18 +200,16 @@ void MainWindow::connectionTest()
 
     settings.setValue(REGISTRY_KEY_CLIENT_BACKUP,   (configInstance->clientBackup->text()));
 
-    settings.setValue(REGISTRY_KEY_CLIENT_USERNAME, (configInstance->clientUser->text()));
+    settings.setValue(REGISTRY_KEY_CLIENT_KEY, (configInstance->clientKey->text()));
 
     QMessageBox::information(this, "Success", "Data successfully saved.");
     sync commandString(sync::linuxos);
 
     QString osName = getOsName();
-    if (osName == "Windows") {
-        commandString.Platform = (sync::windowsos);
-    } else if (osName == "Linux") {
-            commandString.Platform = (sync::linuxos);
+    if (osName == "Linux") {
+        commandString.Platform = (sync::linuxos);
     } else if (osName == "MacOSX") {
-            commandString.Platform = (sync::macosx);
+        commandString.Platform = (sync::macosx);
     } else {
         QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
                                                          "This software only supports WindowsOS, "
@@ -230,7 +223,7 @@ void MainWindow::connectionTest()
     commandString.setServerDaily(configInstance->serverDaily->text());
 
     commandString.setClientDir(configInstance->clientBackup->text());
-    commandString.setClientUser(configInstance->clientUser->text());
+    commandString.setClientKey(configInstance->clientKey->text());
 
     command = commandString.generateCommand();
     settings.setValue(REGISTRY_KEY_COMMAND, command);
@@ -242,15 +235,13 @@ void MainWindow::modifyBackup () {
     sync commandString(sync::linuxos);
     QString osName = getOsName();
 
-    if (osName == "Windows") {
-        commandString.Platform = (sync::windowsos);
-    } else if (osName == "Linux") {
-            commandString.Platform = (sync::linuxos);
+    if (osName == "Linux") {
+        commandString.Platform = (sync::linuxos);
     } else if (osName == "MacOSX") {
-            commandString.Platform = (sync::macosx);
+        commandString.Platform = (sync::macosx);
     } else {
         QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
-                                                         "This software only supports WindowsOS, "
+                                                         "This software only supports "
                                                          "LinuxOS and MacOSX. \nIf you think "
                                                          "that there is an issue, please report it on github.");
 
@@ -262,90 +253,77 @@ void MainWindow::modifyBackup () {
     QString serverDaily = settings.value(REGISTRY_KEY_SERVER_DAILY).toString();
 
     QString clientBackup = settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString();
-    QString clientUser = settings.value(REGISTRY_KEY_CLIENT_USERNAME).toString();
+    QString clientKey = settings.value(REGISTRY_KEY_CLIENT_KEY).toString();
 
     commandString.setServerHostname(serverHost);
     commandString.setServerUser(serverUser);
     commandString.setServerDaily(serverDaily);
 
     commandString.setClientDir(clientBackup);
-    commandString.setClientUser(clientUser);
+    commandString.setClientKey(clientKey);
 
     command = commandString.generateCommand();
     settings.setValue(REGISTRY_KEY_COMMAND, command);
 }
 
-QString MainWindow::getNewString (QString property)
+QString MainWindow::getNewString (QString property, bool &ok)
 {
     QString newString = QInputDialog::getText(this,
-                        "Change " + property, "Enter new " + property);
+                        "Change " + property, "Enter new " + property, QLineEdit::Normal, QString(), &ok);
     return newString;
 }
 
 void MainWindow::on_CServerHostButton_clicked()
 {
-    QString newValue = getNewString("host");
-    settings.setValue(REGISTRY_KEY_SERVER_HOSTNAME, newValue);
+    bool ok;
+    QString newValue = getNewString("host", ok);
+    if (ok)
+        settings.setValue(REGISTRY_KEY_SERVER_HOSTNAME, newValue);
     modifyBackup();
 }
 
 void MainWindow::on_CServerUserButton_clicked()
 {
-    QString newValue = getNewString("user");
-    settings.setValue(REGISTRY_KEY_SERVER_USERNAME, newValue);
+    bool ok;
+    QString newValue = getNewString("user", ok);
+    if (ok)
+        settings.setValue(REGISTRY_KEY_SERVER_USERNAME, newValue);
     modifyBackup();
 }
 
 void MainWindow::on_CServerDailyButton_clicked()
 {
-    QString newValue = getNewString("daily");
-    settings.setValue(REGISTRY_KEY_SERVER_DAILY, newValue);
-    modifyBackup();
-}
-
-void MainWindow::on_CClientBackupButton_clicked()
-{
-    QString newValue = getNewString("backup");
-    settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, newValue);
-    modifyBackup();
-}
-
-void MainWindow::on_CClientUserButton_clicked()
-{
-    QString newValue = getNewString("user");
-    settings.setValue(REGISTRY_KEY_CLIENT_USERNAME, newValue);
+    bool ok;
+    QString newValue = getNewString("daily", ok);
+    if (ok)
+        settings.setValue(REGISTRY_KEY_SERVER_DAILY, newValue);
     modifyBackup();
 }
 
 void MainWindow::on_CServerBackupButton_clicked()
 {
-    QString newValue = getNewString("backup");
-    settings.setValue(REGISTRY_KEY_SERVER_BACKUP, newValue);
+    bool ok;
+    QString newValue = getNewString("backup", ok);
+    if (ok)
+        settings.setValue(REGISTRY_KEY_SERVER_BACKUP, newValue);
 }
 
-
-void MainWindow::on_CLogButton_clicked()
+void MainWindow::on_CClientBackupButton_clicked()
 {
-    QString osName = getOsName();
-    int work = 0;
-    if (osName == "Windows") {
-        work = system ("notepad rsync.log");
-    } else if (osName == "Linux") {
-            work = system ("gedit rsync.log");
-            if (work) {
-                work = system ("mousepad rsync.log");
-            }
-    } else if (osName == "MacOSX") {
-            work = system ("open rsync.log");
-    } else {
-        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
-                                                         "This software only supports WindowsOS, "
-                                                         "LinuxOS and MacOSX. \nIf you think "
-                                                         "that there is an issue, please report it on github.");
+    bool ok;
+    QString newValue = getNewString("backup", ok);
+    if (ok)
+        settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, newValue);
+    modifyBackup();
+}
 
-        qApp->quit();
-    }
-    (void)work;
+void MainWindow::on_CClientKeyButton_clicked()
+{
+    bool ok;
+    QString newValue = getNewString("key", ok);
+    if (ok)
+        settings.setValue(REGISTRY_KEY_CLIENT_KEY, newValue);
+    modifyBackup();
 }
 
 void MainWindow::on_CSyncButton_clicked()
@@ -353,15 +331,13 @@ void MainWindow::on_CSyncButton_clicked()
     sync commandString(sync::linuxos);
     QString osName = getOsName();
 
-    if (osName == "Windows") {
-        commandString.Platform = (sync::windowsos);
-    } else if (osName == "Linux") {
-            commandString.Platform = (sync::linuxos);
+    if (osName == "Linux") {
+        commandString.Platform = (sync::linuxos);
     } else if (osName == "MacOSX") {
-            commandString.Platform = (sync::macosx);
+        commandString.Platform = (sync::macosx);
     } else {
         QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
-                                                         "This software only supports WindowsOS, "
+                                                         "This software only supports "
                                                          "LinuxOS and MacOSX. \nIf you think "
                                                          "that there is an issue, please report it on github.");
 
@@ -373,14 +349,14 @@ void MainWindow::on_CSyncButton_clicked()
     QString serverDaily = settings.value(REGISTRY_KEY_SERVER_DAILY).toString();
 
     QString clientBackup = settings.value(REGISTRY_KEY_CLIENT_BACKUP).toString();
-    QString clientUser = settings.value(REGISTRY_KEY_CLIENT_USERNAME).toString();
+    QString clientKey = settings.value(REGISTRY_KEY_CLIENT_KEY).toString();
 
     commandString.setServerHostname(serverHost);
     commandString.setServerUser(serverUser);
     commandString.setServerDaily(serverDaily);
 
     commandString.setClientDir(clientBackup);
-    commandString.setClientUser(clientUser);
+    commandString.setClientKey(clientKey);
 
     command = commandString.generateCommand();
 
@@ -399,16 +375,13 @@ void MainWindow::on_CSearchButton_clicked()
     QString fileManagerCommand = "";
     QString sftpCommand = "sftp://" + serverUser + "@" + serverHost + serverBackup;
     int work = 0;
-    if (osName == "Windows") {
-        fileManagerCommand = "filemanager " + sftpCommand;
-    } else if (osName == "Linux") {
-            fileManagerCommand = "nautilus " + sftpCommand;
+    if (osName == "Linux") {
+         fileManagerCommand = "nautilus " + sftpCommand;
     } else if (osName == "MacOSX") {
-           fileManagerCommand = "nautilus " + sftpCommand;
-
+       fileManagerCommand = "nautilus " + sftpCommand;
     } else {
         QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
-                                                         "This software only supports WindowsOS, "
+                                                         "This software only supports "
                                                          "LinuxOS and MacOSX. \nIf you think "
                                                          "that there is an issue, please report it on github.");
 
@@ -418,6 +391,27 @@ void MainWindow::on_CSearchButton_clicked()
     (void)work;
 }
 
+void MainWindow::on_CLogButton_clicked()
+{
+    QString osName = getOsName();
+    int work = 0;
+    if (osName == "Linux") {
+        work = system ("gedit rsync.log");
+        if (work) {
+            work = system ("mousepad rsync.log");
+        }
+    } else if (osName == "MacOSX") {
+        work = system ("open rsync.log");
+    } else {
+        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
+                                                         "This software only supports "
+                                                         "LinuxOS and MacOSX. \nIf you think "
+                                                         "that there is an issue, please report it on github.");
+
+        qApp->quit();
+    }
+    (void)work;
+}
 
 QString MainWindow::getOsName()
 {

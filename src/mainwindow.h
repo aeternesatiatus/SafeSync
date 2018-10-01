@@ -20,7 +20,6 @@
 #include <configdialog.h>
 #include <ScriptsClass/sync.h>
 #include <background.h>
-#include <classes/buttonwithimage.h>
 
 namespace Ui {
 // Ui is used to link the XML created in designer with C++ code
@@ -45,12 +44,10 @@ private:
     bool LogIn();
     void configureSoftware();
 
-    ButtonWithImage *aButton;
-
     QSettings settings;
     QPropertyAnimation *exitAnimation;
     configDialog *configInstance;
-    QString getNewString (QString property);
+    QString getNewString (QString property, bool &ok);
     QString getOsName();
     void makeExecutable (QString file);
     background run;
@@ -75,7 +72,7 @@ public slots:
     void on_CServerBackupButton_clicked();
 
     void on_CClientBackupButton_clicked();
-    void on_CClientUserButton_clicked();
+    void on_CClientKeyButton_clicked();
 
     void on_CLogButton_clicked();
     void on_CSyncButton_clicked();

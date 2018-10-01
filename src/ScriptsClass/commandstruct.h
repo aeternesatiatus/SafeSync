@@ -1,13 +1,13 @@
-#ifndef LINUX_H
-#define LINUX_H
+#ifndef COMMANDSTRUCT_H
+#define COMMANDSTRUCT_H
 
 #include <QString>
 
-namespace gnulinux
+namespace commandStruct
 {
-    static const QString first = "date > rsync.log; rsync -e 'ssh -i /home/";
-    // second: clientUser
-    static const QString third = "/.ssh/id_rsa' -av --delete --hard-links --progress '";
+    static const QString first = "date > rsync.log; rsync -e 'ssh -i ";
+    // second: clientKey
+    static const QString third = "' -av --delete --hard-links --progress '";
     // fourth: clientDir
     static const QString fifth = "' ";
     // sixth: serverUser
@@ -18,5 +18,4 @@ namespace gnulinux
     static const QString eleventh = " >> rsync.log";
 };
 
-#endif // LINUX_H
-
+#endif // COMMANDSTRUCT_H

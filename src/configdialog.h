@@ -7,6 +7,7 @@
 #include <QRect>
 #include <QDesktopWidget>
 #include <QFileInfo>
+#include <QFileDialog>
 
 namespace Ui {
 class configDialog;
@@ -23,16 +24,18 @@ public:
                             const QString &serverDaily,
                             const QString &serverBackup,
                             const QString &clientBackup,
-                            const QString &clientUser,
+                            const QString &clientKey,
                             QWidget *parent = 0);
     ~configDialog();
 
-    QLineEdit *serverUser, *serverHost, *serverDaily, *serverBackup, *clientBackup, *clientUser;
+    QLineEdit *serverUser, *serverHost, *serverDaily, *serverBackup, *clientBackup, *clientKey;
 
 private:
     Ui::configDialog *ui;
 
     void initPtr();
+private slots:
+    void on_searchButton_clicked();
 };
 
 #endif // CONFIGDIALOG_H

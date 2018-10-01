@@ -28,21 +28,14 @@ SOURCES += \
         mainwindow.cpp \
     configdialog.cpp \
     ScriptsClass/sync.cpp \
-    ScriptsClass/linux.cpp \
-    ScriptsClass/macosx.cpp \
-    ScriptsClass/windows.cpp \
-    background.cpp \
-    classes/buttonwithimage.cpp
+    background.cpp
 
 HEADERS += \
         mainwindow.h \
     configdialog.h \
     ScriptsClass/sync.h \
-    ScriptsClass/linux.h \
-    ScriptsClass/macosx.h \
-    ScriptsClass/windows.h \
     background.h \
-    classes/buttonwithimage.h
+    ScriptsClass/commandstruct.h
 
 FORMS += \
         mainwindow.ui \

@@ -1,26 +1,9 @@
 #include "sync.h"
-#include "linux.h"
-#include "windows.h"
-#include "macosx.h"
+#include "commandstruct.h"
 
 sync::sync(sync::os platform, QObject *parent) : QObject(parent), Platform(platform)
 {
     
-}
-
-void sync::setClientUser (QString value) {
-    clientUser = value;
-    emit clientUserChanged();
-}
-
-void sync::setClientDir (QString value) {
-    clientDir = value;
-    emit clientDirChanged();
-}
-
-void sync::setServerUser (QString value) {
-    serverUser = value;
-    emit serverUserChanged();
 }
 
 void sync::setServerHostname (QString value) {
@@ -28,37 +11,38 @@ void sync::setServerHostname (QString value) {
     emit serverHostnameChanged();
 }
 
+void sync::setServerUser (QString value) {
+    serverUser = value;
+    emit serverUserChanged();
+}
+
 void sync::setServerDaily (QString value) {
     serverDaily = value;
     emit serverDailyChanged();
 }
 
-void sync::setCwrsync (QString value) {
-    cwrsync = value;
-    emit cwrsyncChanged();
+void sync::setClientDir (QString value) {
+    clientDir = value;
+    emit clientDirChanged();
+}
+
+void sync::setClientKey (QString value) {
+    clientKey = value;
+    emit clientKeyChanged();
 }
 
 QString sync::generateCommand () {
     QString command;
 
     switch (Platform) {
-        case windowsos:
-            command = (windows::first + clientUser +
-                       windows::third + clientDir +
-                       windows::fifth + serverUser +
-                       windows::seventh + serverHostname +
-                       windows::ninth + serverDaily +
-                       windows::eleventh);
-            break;
         case linuxos: // same for linux and mac
-
         case macosx:
-            command = (gnulinux::first + clientUser +
-                       gnulinux::third + clientDir +
-                       gnulinux::fifth + serverUser +
-                       gnulinux::seventh + serverHostname +
-                       gnulinux::ninth + serverDaily +
-                       gnulinux::eleventh);
+            command = (commandStruct::first + clientKey +
+                       commandStruct::third + clientDir +
+                       commandStruct::fifth + serverUser +
+                       commandStruct::seventh + serverHostname +
+                       commandStruct::ninth + serverDaily +
+                       commandStruct::eleventh);
             break;
     }
     return command;

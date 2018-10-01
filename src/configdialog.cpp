@@ -14,7 +14,7 @@ configDialog::configDialog(const QString &serverUser,
                            const QString &serverDaily,
                            const QString &serverBackup,
                            const QString &clientBackup,
-                           const QString &clientUser,
+                           const QString &clientKey,
                            QWidget *parent) :
     QDialog(parent),
     ui(new Ui::configDialog)
@@ -27,7 +27,7 @@ configDialog::configDialog(const QString &serverUser,
     ui->serverBackupLine->setText(serverBackup);
 
     ui->clientBackupLine->setText(clientBackup);
-    ui->clientUserLine->setText(clientUser);
+    ui->clientKeyLine->setText(clientKey);
 
     initPtr();
 }
@@ -45,13 +45,20 @@ void configDialog::initPtr()
     serverBackup = ui->serverBackupLine;
 
     clientBackup = ui->clientBackupLine;
-    clientUser = ui->clientUserLine;
+    clientKey = ui->clientKeyLine;
 
     setTabOrder(ui->serverUserLine, ui->serverHostLine);
     setTabOrder(ui->serverHostLine, ui->serverDailyLine);
     setTabOrder(ui->serverDailyLine, ui->serverBackupLine);
     setTabOrder(ui->serverBackupLine, ui->clientBackupLine);
-    setTabOrder(ui->clientBackupLine, ui->clientUserLine);
+    setTabOrder(ui->clientBackupLine, ui->clientKeyLine);
 
     setModal(true);
+}
+
+void configDialog::on_searchButton_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "SSH key", QString(), QString());
+    if (fileName.isEmpty()) return;
+    ui->clientKeyLine->setText(fileName);
 }
