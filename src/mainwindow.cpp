@@ -373,12 +373,13 @@ void MainWindow::on_CSearchButton_clicked()
     QString serverBackup = settings.value(REGISTRY_KEY_SERVER_BACKUP).toString();
 
     QString fileManagerCommand = "";
-    QString sftpCommand = "sftp://" + serverUser + "@" + serverHost + serverBackup;
+    QString sftpCommand = "sftp://" + serverUser + "@" + serverHost + ":" + serverBackup;
     int work = 0;
+    showMinimized();
     if (osName == "Linux") {
          fileManagerCommand = "nautilus " + sftpCommand;
     } else if (osName == "MacOSX") {
-       fileManagerCommand = "nautilus " + sftpCommand;
+       fileManagerCommand = "open /Applications/Cyberduck.app/Contents/MacOS/Cyberduck";
     } else {
         QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
                                                          "This software only supports "

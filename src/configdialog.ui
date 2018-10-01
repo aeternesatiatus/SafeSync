@@ -136,20 +136,6 @@ QGroupBox {
       <string>CLIENT</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_6">
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>SSH Key</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QLineEdit" name="clientKeyLine">
-        <property name="placeholderText">
-         <string>ssh key</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
        <widget class="QLabel" name="userLabel_3">
         <property name="text">
@@ -160,14 +146,7 @@ QGroupBox {
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Username</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="3">
+      <item row="2" column="3">
        <widget class="QPushButton" name="searchButton">
         <property name="text">
          <string/>
@@ -178,16 +157,6 @@ QGroupBox {
         </property>
        </widget>
       </item>
-      <item row="2" column="2" colspan="2">
-       <widget class="QLineEdit" name="clientUserLine">
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-        <property name="placeholderText">
-         <string>client user</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="2" colspan="2">
        <widget class="QLineEdit" name="clientBackupLine">
         <property name="alignment">
@@ -195,6 +164,20 @@ QGroupBox {
         </property>
         <property name="placeholderText">
          <string>client backup folder path</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>SSH Key</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLineEdit" name="clientKeyLine">
+        <property name="placeholderText">
+         <string>ssh key</string>
         </property>
        </widget>
       </item>
