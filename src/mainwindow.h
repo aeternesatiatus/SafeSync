@@ -77,7 +77,9 @@ public slots:
     void on_CLogButton_clicked();
     void on_CSyncButton_clicked();
     void on_CSearchButton_clicked();
-
+    void on_searchBackupButton_clicked();
+    void on_changeBackupButton_clicked();
+    void on_changeSSHButton_clicked();
 
 signals:
 };

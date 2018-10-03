@@ -212,7 +212,7 @@ void MainWindow::connectionTest()
         commandString.Platform = (sync::macosx);
     } else {
         QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
-                                                         "This software only supports WindowsOS, "
+                                                         "This software only supports "
                                                          "LinuxOS and MacOSX. \nIf you think "
                                                          "that there is an issue, please report it on github.");
         qApp->quit();
@@ -427,4 +427,20 @@ QString MainWindow::getOsName()
     #else
     return "Other";
     #endif
+}
+
+void MainWindow::on_changeBackupButton_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "Backup", QString(), QString());
+    if (fileName.isEmpty()) return;
+    settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, fileName);
+    modifyBackup();
+}
+
+void MainWindow::on_changeSSHButton_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "SSH Key", QString(), QString());
+    if (fileName.isEmpty()) return;
+    settings.setValue(REGISTRY_KEY_CLIENT_KEY, fileName);
+    modifyBackup();
 }

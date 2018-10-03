@@ -42,7 +42,6 @@ FORMS += \
     configdialog.ui
 
 DISTFILES += \
-    darkstyle.qss \
     Qt-AES-master/LICENSE
 
 RESOURCES += \

@@ -41,6 +41,83 @@ QGroupBox {
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_5">
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="title">
+      <string>CLIENT</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_6">
+      <item row="1" column="0">
+       <widget class="QLabel" name="userLabel_3">
+        <property name="text">
+         <string>Backup</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>SSH Key</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" colspan="3">
+       <widget class="QLineEdit" name="clientBackupLine">
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QPushButton" name="searchBackupButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/qss_icons/rc/search_icon.png</normaloff>:/qss_icons/rc/search_icon.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QPushButton" name="searchSSHButton">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/qss_icons/rc/search_icon.png</normaloff>:/qss_icons/rc/search_icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" colspan="3">
+       <widget class="QLineEdit" name="clientKeyLine">
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
@@ -66,7 +143,7 @@ QGroupBox {
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
         <property name="placeholderText">
-         <string>daily backup folder path</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -76,7 +153,7 @@ QGroupBox {
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
         <property name="placeholderText">
-         <string>server host</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -93,7 +170,7 @@ QGroupBox {
       <item row="8" column="0">
        <widget class="QLabel" name="hostLabel_2">
         <property name="text">
-         <string>DailybDir</string>
+         <string>DailyBackup</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -106,7 +183,7 @@ QGroupBox {
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
         <property name="placeholderText">
-         <string>server user</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -116,68 +193,14 @@ QGroupBox {
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
         <property name="placeholderText">
-         <string>backup folder path</string>
+         <string/>
         </property>
        </widget>
       </item>
       <item row="9" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>BackupDir</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="title">
-      <string>CLIENT</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_6">
-      <item row="1" column="0">
-       <widget class="QLabel" name="userLabel_3">
-        <property name="text">
-         <string>BackupDir</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="3">
-       <widget class="QPushButton" name="searchButton">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="resources.qrc">
-          <normaloff>:/cpp/safesync/rc/search_icon.png</normaloff>:/cpp/safesync/rc/search_icon.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2" colspan="2">
-       <widget class="QLineEdit" name="clientBackupLine">
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-        <property name="placeholderText">
-         <string>client backup folder path</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>SSH Key</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="QLineEdit" name="clientKeyLine">
-        <property name="placeholderText">
-         <string>ssh key</string>
+         <string>Backup</string>
         </property>
        </widget>
       </item>

@@ -56,7 +56,14 @@ void configDialog::initPtr()
     setModal(true);
 }
 
-void configDialog::on_searchButton_clicked()
+void configDialog::on_searchBackupButton_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "Backup", QString(), QString());
+    if (fileName.isEmpty()) return;
+    ui->clientBackupLine->setText(fileName);
+}
+
+void configDialog::on_searchSSHButton_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this, "SSH key", QString(), QString());
     if (fileName.isEmpty()) return;

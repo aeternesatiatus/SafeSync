@@ -40,8 +40,6 @@
         <file>rc/up_arrow_disabled.png</file>
         <file>rc/Vmovetoolbar.png</file>
         <file>rc/Vsepartoolbar.png</file>
-    </qresource>
-    <qresource prefix="/">
-        <file>../../cpp/safesync/rc/search_icon.png</file>
+        <file>rc/search_icon.png</file>
     </qresource>
 </RCC>
