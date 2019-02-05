@@ -1,87 +1,51 @@
-# SafeSync
+<div align="center"><img src="img/logo.svg" alt="Logo" height="200"><h1>SafeSync</h1></div>
 
 SafeSync is an automatic incremental backup tool used to synchronize a client folder with a server Backup folder everyday. It uses hard symbolic links in order to use minimum storage.
 
-## Getting Started
+[IN PROGRESS]
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+# Getting Started
 
-### Prerequisites
+## Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Install pkg
 
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+$ ...
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Launch the software from a Terminal:
 
-## Built With
+```
+$ ...
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+# Built With
 
-## Contributing
+* [QT](https://www.qt.io/) - Creating the Software
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+# Contributing
 
-## Versioning
+Please leave a star 🌟 and read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to improve the project.
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+# Versioning
 
-## Authors
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/lukalafaye/SafeSync/tags). 
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+# Authors
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Luka Lafaye de Micheaux** - *Initial work* - [lukalafaye](https://github.com/lukalafaye)
 
-## License
+See also the list of [contributors](https://github.com/lukalafaye/SafeSync/contributors) who participated in this project.
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+# Acknowledgments
 
-## Acknowledgments
+* **Lucas Gruwez** - *Create SafeSync website* - [@lucasgruwez](https://github.com/lucasgruwez)
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+# License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+Copyright © 2019 Luka Lafaye de Micheaux | All Rights Reserved.
