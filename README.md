@@ -1,4 +1,4 @@
-<div align="center"><img src="img/logo.svg" alt="Logo" height="200"><h1>SafeSync</h1></div>
+<div align="center"><img src="img/logo.svg" alt="Logo" height="200"></div>
 
 SafeSync is an automatic incremental backup tool used to synchronize a client folder with a server Backup folder everyday. It uses hard symbolic links in order to use minimum storage.
 
