@@ -37,6 +37,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 # Authors
 
 * **Luka Lafaye de Micheaux** - *Initial work* - [lukalafaye](https://github.com/lukalafaye)
+* **Leo Gervoson** - *Develop software*
 
 See also the list of [contributors](https://github.com/lukalafaye/SafeSync/contributors) who participated in this project.
 
