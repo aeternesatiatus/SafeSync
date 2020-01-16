@@ -58,14 +58,14 @@ void configDialog::initPtr()
 
 void configDialog::on_searchBackupButton_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Backup", QString(), QString());
-    if (fileName.isEmpty()) return;
-    ui->clientBackupLine->setText(fileName);
+    QString folderName = QFileDialog::getExistingDirectory (this, "Open Client Backup Directory", QString(), QFileDialog::ShowDirsOnly);
+    if (folderName.isEmpty()) return;
+    ui->clientBackupLine->setText(folderName);
 }
 
 void configDialog::on_searchSSHButton_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "SSH key", QString(), QString());
+    QString fileName = QFileDialog::getOpenFileName(this, "Select Public SSH key", QString(), QString());
     if (fileName.isEmpty()) return;
     ui->clientKeyLine->setText(fileName);
 }

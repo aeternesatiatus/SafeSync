@@ -35,7 +35,6 @@ private:
 
     void initPtr();
 private slots:
-    void on_searchButton_clicked();
     void on_searchBackupButton_clicked();
     void on_searchSSHButton_clicked();
 };

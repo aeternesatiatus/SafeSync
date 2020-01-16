@@ -195,12 +195,18 @@ QGroupBox {
           <string>CLIENT</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="1" column="1">
-           <widget class="QPushButton" name="changeSSHButton">
-            <property name="text">
-             <string>Change SSH Key Path</string>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer_25">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-           </widget>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item row="0" column="2">
            <spacer name="horizontalSpacer_26">
@@ -215,8 +221,22 @@ QGroupBox {
             </property>
            </spacer>
           </item>
-          <item row="0" column="0">
-           <spacer name="horizontalSpacer_25">
+          <item row="1" column="1">
+           <widget class="QPushButton" name="changeSSHButton">
+            <property name="text">
+             <string>Change SSH Key Path</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="changeBackupButton">
+            <property name="text">
+             <string>Change Backup Path</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_19">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -241,26 +261,6 @@ QGroupBox {
             </property>
            </spacer>
           </item>
-          <item row="1" column="0">
-           <spacer name="horizontalSpacer_19">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="0" column="1">
-           <widget class="QPushButton" name="changeBackupButton">
-            <property name="text">
-             <string>Change Backup Path</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </item>
@@ -270,54 +270,15 @@ QGroupBox {
           <string/>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="2">
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="1" column="0">
-           <spacer name="horizontalSpacer_5">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="0" column="1">
-           <widget class="QPushButton" name="resetButton">
+          <item row="4" column="1">
+           <widget class="QPushButton" name="CLogButton">
             <property name="text">
-             <string>SOFT RESET</string>
+             <string>Log</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="2">
-           <spacer name="horizontalSpacer_8">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="3" column="0">
-           <spacer name="horizontalSpacer_9">
+          <item row="1" column="2">
+           <spacer name="horizontalSpacer_6">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -342,8 +303,8 @@ QGroupBox {
             </property>
            </spacer>
           </item>
-          <item row="1" column="2">
-           <spacer name="horizontalSpacer_6">
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_4">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -362,7 +323,20 @@ QGroupBox {
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="0">
            <spacer name="horizontalSpacer_7">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -375,8 +349,8 @@ QGroupBox {
             </property>
            </spacer>
           </item>
-          <item row="3" column="2">
-           <spacer name="horizontalSpacer_10">
+          <item row="4" column="2">
+           <spacer name="horizontalSpacer_18">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -388,24 +362,23 @@ QGroupBox {
             </property>
            </spacer>
           </item>
-          <item row="3" column="1">
-           <widget class="QPushButton" name="CSearchButton">
-            <property name="text">
-             <string>Search</string>
+          <item row="3" column="2">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QPushButton" name="CSyncButton">
-            <property name="text">
-             <string>Manual Sync</string>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
             </property>
-           </widget>
+           </spacer>
           </item>
-          <item row="4" column="1">
-           <widget class="QPushButton" name="CLogButton">
+          <item row="0" column="1">
+           <widget class="QPushButton" name="resetButton">
             <property name="text">
-             <string>Log</string>
+             <string>SOFT RESET</string>
             </property>
            </widget>
           </item>
@@ -422,8 +395,35 @@ QGroupBox {
             </property>
            </spacer>
           </item>
-          <item row="4" column="2">
-           <spacer name="horizontalSpacer_18">
+          <item row="3" column="1">
+           <widget class="QPushButton" name="CSyncButton">
+            <property name="text">
+             <string>Manual Sync</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="CSearchButton">
+            <property name="text">
+             <string>Search</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="2">
+           <spacer name="horizontalSpacer_10">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>

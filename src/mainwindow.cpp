@@ -276,7 +276,7 @@ QString MainWindow::getNewString (QString property, bool &ok)
 void MainWindow::on_CServerHostButton_clicked()
 {
     bool ok;
-    QString newValue = getNewString("host", ok);
+    QString newValue = getNewString("server hostname", ok);
     if (ok)
         settings.setValue(REGISTRY_KEY_SERVER_HOSTNAME, newValue);
     modifyBackup();
@@ -285,7 +285,7 @@ void MainWindow::on_CServerHostButton_clicked()
 void MainWindow::on_CServerUserButton_clicked()
 {
     bool ok;
-    QString newValue = getNewString("user", ok);
+    QString newValue = getNewString("server username", ok);
     if (ok)
         settings.setValue(REGISTRY_KEY_SERVER_USERNAME, newValue);
     modifyBackup();
@@ -294,7 +294,7 @@ void MainWindow::on_CServerUserButton_clicked()
 void MainWindow::on_CServerDailyButton_clicked()
 {
     bool ok;
-    QString newValue = getNewString("daily", ok);
+    QString newValue = getNewString("Server Daily Backup Directory Path", ok);
     if (ok)
         settings.setValue(REGISTRY_KEY_SERVER_DAILY, newValue);
     modifyBackup();
@@ -303,7 +303,7 @@ void MainWindow::on_CServerDailyButton_clicked()
 void MainWindow::on_CServerBackupButton_clicked()
 {
     bool ok;
-    QString newValue = getNewString("backup", ok);
+    QString newValue = getNewString("Server Backup Directory Path", ok);
     if (ok)
         settings.setValue(REGISTRY_KEY_SERVER_BACKUP, newValue);
 }
@@ -311,7 +311,7 @@ void MainWindow::on_CServerBackupButton_clicked()
 void MainWindow::on_CClientBackupButton_clicked()
 {
     bool ok;
-    QString newValue = getNewString("backup", ok);
+    QString newValue = getNewString("Client Backup Directory Path", ok);
     if (ok)
         settings.setValue(REGISTRY_KEY_CLIENT_BACKUP, newValue);
     modifyBackup();
@@ -320,10 +320,38 @@ void MainWindow::on_CClientBackupButton_clicked()
 void MainWindow::on_CClientKeyButton_clicked()
 {
     bool ok;
-    QString newValue = getNewString("key", ok);
+    QString newValue = getNewString("Client Public SSH Key", ok);
     if (ok)
         settings.setValue(REGISTRY_KEY_CLIENT_KEY, newValue);
     modifyBackup();
+}
+
+void MainWindow::on_CSearchButton_clicked()
+{
+    sync commandString(sync::linuxos);
+    QString osName = getOsName();
+    QString serverHost = settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString();
+    QString serverUser = settings.value(REGISTRY_KEY_SERVER_USERNAME).toString();
+    QString serverBackup = settings.value(REGISTRY_KEY_SERVER_BACKUP).toString();
+
+    QString fileManagerCommand = "";
+    QString sftpCommand = "sftp://" + serverUser + "@" + serverHost + serverBackup;
+    int work = 0;
+    showMinimized();
+    if (osName == "Linux") {
+         fileManagerCommand = "nautilus " + sftpCommand;
+    } else if (osName == "MacOSX") {
+       fileManagerCommand = "open /Applications/Cyberduck.app/Contents/MacOS/Cyberduck";
+    } else {
+        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
+                                                         "This software only supports "
+                                                         "LinuxOS and MacOSX. \nIf you think "
+                                                         "that there is an issue, please report it on github.");
+
+        qApp->quit();
+    }
+    work = system (fileManagerCommand.toStdString().c_str());
+    (void)work;
 }
 
 void MainWindow::on_CSyncButton_clicked()
@@ -361,34 +389,6 @@ void MainWindow::on_CSyncButton_clicked()
     command = commandString.generateCommand();
 
     int work = system (command.toStdString().c_str());
-    (void)work;
-}
-
-void MainWindow::on_CSearchButton_clicked()
-{
-    sync commandString(sync::linuxos);
-    QString osName = getOsName();
-    QString serverHost = settings.value(REGISTRY_KEY_SERVER_HOSTNAME).toString();
-    QString serverUser = settings.value(REGISTRY_KEY_SERVER_USERNAME).toString();
-    QString serverBackup = settings.value(REGISTRY_KEY_SERVER_BACKUP).toString();
-
-    QString fileManagerCommand = "";
-    QString sftpCommand = "sftp://" + serverUser + "@" + serverHost + ":" + serverBackup;
-    int work = 0;
-    showMinimized();
-    if (osName == "Linux") {
-         fileManagerCommand = "nautilus " + sftpCommand;
-    } else if (osName == "MacOSX") {
-       fileManagerCommand = "open /Applications/Cyberduck.app/Contents/MacOS/Cyberduck";
-    } else {
-        QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
-                                                         "This software only supports "
-                                                         "LinuxOS and MacOSX. \nIf you think "
-                                                         "that there is an issue, please report it on github.");
-
-        qApp->quit();
-    }
-    work = system (fileManagerCommand.toStdString().c_str());
     (void)work;
 }
 

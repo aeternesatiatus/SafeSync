@@ -50,7 +50,7 @@ QGroupBox {
       <item row="1" column="0">
        <widget class="QLabel" name="userLabel_3">
         <property name="text">
-         <string>Backup</string>
+         <string>Backup Path</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -60,7 +60,7 @@ QGroupBox {
       <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>SSH Key</string>
+         <string>SSH Key Path</string>
         </property>
        </widget>
       </item>
@@ -170,7 +170,7 @@ QGroupBox {
       <item row="8" column="0">
        <widget class="QLabel" name="hostLabel_2">
         <property name="text">
-         <string>DailyBackup</string>
+         <string>DailyBackup Path</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -200,7 +200,7 @@ QGroupBox {
       <item row="9" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Backup</string>
+         <string>Backup Path</string>
         </property>
        </widget>
       </item>

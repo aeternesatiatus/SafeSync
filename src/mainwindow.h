@@ -62,9 +62,6 @@ public slots:
     // void on_pushButton_clicked();
     // Slots linked with XML (on_instanceName_signal)
     // Another slot used for when a button is clicked
-    void on_resetButton_clicked(); // Soft reset.
-    void on_hResetButton_clicked();// Hard reset.
-    void connectionTest();
 
     void on_CServerHostButton_clicked();
     void on_CServerUserButton_clicked();
@@ -74,10 +71,13 @@ public slots:
     void on_CClientBackupButton_clicked();
     void on_CClientKeyButton_clicked();
 
-    void on_CLogButton_clicked();
-    void on_CSyncButton_clicked();
+    void on_resetButton_clicked(); // Soft reset.
+    void on_hResetButton_clicked();// Hard reset.
+    void connectionTest();
     void on_CSearchButton_clicked();
-    void on_searchBackupButton_clicked();
+    void on_CSyncButton_clicked();
+    void on_CLogButton_clicked();
+
     void on_changeBackupButton_clicked();
     void on_changeSSHButton_clicked();
 

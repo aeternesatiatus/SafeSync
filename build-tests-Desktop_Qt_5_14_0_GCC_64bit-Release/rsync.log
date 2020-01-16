@@ -1,0 +1,8 @@
+Thu Jan 16 09:34:15 AEDT 2020
+sending incremental file list
+Backup/
+Backup/test2
+              3 100%    0.00kB/s    0:00:00                3 100%    0.00kB/s    0:00:00 (xfr#1, to-chk=0/4)
+
+sent 178 bytes  received 39 bytes  33.38 bytes/sec
+total size is 9  speedup is 0.04
