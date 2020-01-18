@@ -339,9 +339,9 @@ void MainWindow::on_CSearchButton_clicked()
     int work = 0;
     showMinimized();
     if (osName == "Linux") {
-         fileManagerCommand = "nautilus " + sftpCommand;
+         fileManagerCommand = "nautilus " + sftpCommand + " &";
     } else if (osName == "MacOSX") {
-       fileManagerCommand = "open /Applications/Cyberduck.app/Contents/MacOS/Cyberduck";
+       fileManagerCommand = "open /Applications/Cyberduck.app/Contents/MacOS/Cyberduck &";
     } else {
         QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
                                                          "This software only supports "
@@ -386,7 +386,7 @@ void MainWindow::on_CSyncButton_clicked()
     commandString.setClientDir(clientBackup);
     commandString.setClientKey(clientKey);
 
-    command = commandString.generateCommand();
+    command = commandString.generateCommand() + " &";
 
     int work = system (command.toStdString().c_str());
     (void)work;
@@ -399,10 +399,10 @@ void MainWindow::on_CLogButton_clicked()
     if (osName == "Linux") {
         work = system ("gedit rsync.log");
         if (work) {
-            work = system ("mousepad rsync.log");
+            work = system ("mousepad rsync.log &");
         }
     } else if (osName == "MacOSX") {
-        work = system ("open rsync.log");
+        work = system ("open rsync.log &");
     } else {
         QMessageBox::critical(this, "ERROR", "Your OS is not supported. \n"
                                                          "This software only supports "

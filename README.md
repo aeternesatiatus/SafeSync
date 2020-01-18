@@ -2,25 +2,7 @@
 
 SafeSync is an automatic incremental backup tool used to synchronize a client folder with a server Backup folder everyday. It uses hard symbolic links in order to use minimum storage.
 
-[IN PROGRESS]
-
-# Getting Started
-
-## Prerequisites
-
-Install pkg
-
-```
-$ ...
-```
-
-## Deployment
-
-Launch the software from a Terminal:
-
-```
-$ ...
-```
+Check out our wiki for more info about installation.
 
 # Built With
 
@@ -30,16 +12,12 @@ $ ...
 
 Please leave a star 🌟 and read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to improve the project.
 
-# Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/lukalafaye/SafeSync/tags). 
-
 # Authors
 
-* **Aeterne Satiatus** - *Initial work* - [aeternesatiatus](https://github.com/aeternesatiatus)
+* **Aeterne Satiatus** - *Initial work*
 * **Leo Gervoson** - *Initial work*
 
-See also the list of [contributors](https://github.com/lukalafaye/SafeSync/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/aeternesatiatus/SafeSync/contributors) who participated in this project.
 
 # Acknowledgments
 
@@ -51,4 +29,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<p align="center">Copyright © 2019 Luka Lafaye de Micheaux | All Rights Reserved.</p>
+<p align="center">Copyright © 2020 Aeterne Satiatus | All Rights Reserved.</p>
