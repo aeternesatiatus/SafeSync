@@ -2,7 +2,7 @@
 
 SafeSync is an automatic incremental backup tool used to synchronize a client folder with a server Backup folder everyday. It uses hard symbolic links in order to use minimum storage.
 
-Check out our wiki for more info about installation.
+Check out our [wiki](https://github.com/aeternesatiatus/SafeSync/wiki) for more info about installation.
 
 # Built With
 
