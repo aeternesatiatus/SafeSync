@@ -1,0 +1,23 @@
+# markdown adn highlighter
+markdown:    kramdown
+highlighter: rouge
+
+# permalinks
+permalink:  pretty
+
+# Server
+url:        s4vethechildren.com
+baseurl:    /SafeSync
+title:      SafeSync
+
+# Custom variables
+version:    v1.0
+
+repo:       https://github.com/aeternesatiatus/SafeSync
+download:   https://github.com/aeternesatiatus/SafeSync
+
+docs:       https://github.com/aeternesatiatus/SafeSync/wiki
+stargazers: https://github.com/aeternesatiatus/SafeSync/stargazers
+
+author:
+    github:   https://github.com/aeternesatiatus
