@@ -14,10 +14,10 @@ Please leave a star 🌟 and read [CONTRIBUTING.md](CONTRIBUTING.md) for details
 
 # Authors
 
-* **Aeterne Satiatus** - *Initial work*
+* **Luka Lafaye de Micheaux** - *Initial work*
 * **Leo Gervoson** - *Initial work*
 
-See also the list of [contributors](https://github.com/aeternesatiatus/SafeSync/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/lukalafaye/SafeSync/contributors) who participated in this project.
 
 # Acknowledgments
 
@@ -29,4 +29,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<p align="center">Copyright © 2020 Aeterne Satiatus | All Rights Reserved.</p>
+<p align="center">Copyright © 2021 Luka Lafaye de Micheaux | All Rights Reserved.</p>
