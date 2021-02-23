@@ -6,18 +6,18 @@ highlighter: rouge
 permalink:  pretty
 
 # Server
-url:        s4vethechildren.com
+url:        tedflix.tech
 baseurl:    /SafeSync
 title:      SafeSync
 
 # Custom variables
 version:    1.0
 
-repo:       https://github.com/aeternesatiatus/SafeSync
-download:   https://github.com/aeternesatiatus/SafeSync
+repo:       https://github.com/lukalafaye/SafeSync
+download:   https://github.com/lukalafaye/SafeSync
 
-docs:       https://github.com/aeternesatiatus/SafeSync/wiki
-stargazers: https://github.com/aeternesatiatus/SafeSync/stargazers
+docs:       https://github.com/lukalafaye/SafeSync/wiki
+stargazers: https://github.com/lukalafaye/SafeSync/stargazers
 
 author:
-    github:   https://github.com/aeternesatiatus
+    github:   https://github.com/lukalafaye
